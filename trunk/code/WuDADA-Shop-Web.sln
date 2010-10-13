@@ -4,16 +4,16 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WuDADA-Shop-Web", "H:\DADA版本控制程式\web\WuDADA-Shop\code\WuDADA-Shop-Web\", "{2DF13B71-178B-4BF0-82D4-5B620E506478}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "3.5"
-		ProjectReferences = "{A8B6B4B2-3D9F-4F1F-902A-3C664B1C63C7}|WuDADA-Console.dll;{81989B0F-DE98-4DBD-A6BD-1F957389DE5E}|WuDADA-Console.Auth.dll;{E262EE39-BAB2-4C83-AD6B-934215620044}|WuDADA-Console.Poss.dll;{82C6FFFB-EC49-498E-BBA5-0FA8DD0B001E}|WuDADA-Console.Shop.dll;{D5DFA02B-1316-4C49-9EE5-75FB8F38B1C9}|WuDADA-Web.dll;{0AA2ECFC-4C23-463E-86F8-4EAC760B0294}|WuDADA-Console.Member.dll;"
+		ProjectReferences = "{A8B6B4B2-3D9F-4F1F-902A-3C664B1C63C7}|WuDADA-Console.dll;{81989B0F-DE98-4DBD-A6BD-1F957389DE5E}|WuDADA-Console.Auth.dll;{D5DFA02B-1316-4C49-9EE5-75FB8F38B1C9}|WuDADA-Web.dll;{0AA2ECFC-4C23-463E-86F8-4EAC760B0294}|WuDADA-Console.Member.dll;{E262EE39-BAB2-4C83-AD6B-934215620044}|WuDADA-Console.Poss.dll;{82C6FFFB-EC49-498E-BBA5-0FA8DD0B001E}|WuDADA-Console.Shop.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/WuDADA-Shop-Web"
-		Debug.AspNetCompiler.PhysicalPath = "H:\DADA版本控制程式\web\WuDADA-Shop\code\WuDADA-Shop-Web\"
+		Debug.AspNetCompiler.PhysicalPath = "WuDADA-Shop-Web\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WuDADA-Shop-Web\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/WuDADA-Shop-Web"
-		Release.AspNetCompiler.PhysicalPath = "H:\DADA版本控制程式\web\WuDADA-Shop\code\WuDADA-Shop-Web\"
+		Release.AspNetCompiler.PhysicalPath = "WuDADA-Shop-Web\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\WuDADA-Shop-Web\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
@@ -29,18 +29,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WuDADA-Console.Auth2", "H:\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WuDADA-Web", "H:\DADA版本控制程式\WuDADAConsoleLibrary\WuDADA-Web\WuDADA-Web.csproj", "{D5DFA02B-1316-4C49-9EE5-75FB8F38B1C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WuDADA-Console.Poss", "H:\DADA版本控制程式\WuDADAConsoleLibrary\WuDADA-Console.Poss\WuDADA-Console.Poss.csproj", "{E262EE39-BAB2-4C83-AD6B-934215620044}"
-	ProjectSection(ProjectDependencies) = postProject
-		{A8B6B4B2-3D9F-4F1F-902A-3C664B1C63C7} = {A8B6B4B2-3D9F-4F1F-902A-3C664B1C63C7}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WuDADA-Console.Shop", "H:\DADA版本控制程式\WuDADAConsoleLibrary\WuDADA-Console.Shop\WuDADA-Console.Shop.csproj", "{82C6FFFB-EC49-498E-BBA5-0FA8DD0B001E}"
-	ProjectSection(ProjectDependencies) = postProject
-		{E262EE39-BAB2-4C83-AD6B-934215620044} = {E262EE39-BAB2-4C83-AD6B-934215620044}
-		{A8B6B4B2-3D9F-4F1F-902A-3C664B1C63C7} = {A8B6B4B2-3D9F-4F1F-902A-3C664B1C63C7}
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WuDADA-Console.Member", "H:\DADA版本控制程式\WuDADAConsoleLibrary\WuDADA-Console.Member\WuDADA-Console.Member.csproj", "{0AA2ECFC-4C23-463E-86F8-4EAC760B0294}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WuDADA-Console.Poss", "..\..\..\WuDADAConsoleLibrary\WuDADA-Console.Poss\WuDADA-Console.Poss.csproj", "{E262EE39-BAB2-4C83-AD6B-934215620044}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WuDADA-Console.Shop", "..\..\..\WuDADAConsoleLibrary\WuDADA-Console.Shop\WuDADA-Console.Shop.csproj", "{82C6FFFB-EC49-498E-BBA5-0FA8DD0B001E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,6 +57,10 @@ Global
 		{D5DFA02B-1316-4C49-9EE5-75FB8F38B1C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5DFA02B-1316-4C49-9EE5-75FB8F38B1C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5DFA02B-1316-4C49-9EE5-75FB8F38B1C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AA2ECFC-4C23-463E-86F8-4EAC760B0294}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AA2ECFC-4C23-463E-86F8-4EAC760B0294}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AA2ECFC-4C23-463E-86F8-4EAC760B0294}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AA2ECFC-4C23-463E-86F8-4EAC760B0294}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E262EE39-BAB2-4C83-AD6B-934215620044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E262EE39-BAB2-4C83-AD6B-934215620044}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E262EE39-BAB2-4C83-AD6B-934215620044}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -72,10 +69,6 @@ Global
 		{82C6FFFB-EC49-498E-BBA5-0FA8DD0B001E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82C6FFFB-EC49-498E-BBA5-0FA8DD0B001E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82C6FFFB-EC49-498E-BBA5-0FA8DD0B001E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0AA2ECFC-4C23-463E-86F8-4EAC760B0294}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0AA2ECFC-4C23-463E-86F8-4EAC760B0294}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0AA2ECFC-4C23-463E-86F8-4EAC760B0294}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0AA2ECFC-4C23-463E-86F8-4EAC760B0294}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

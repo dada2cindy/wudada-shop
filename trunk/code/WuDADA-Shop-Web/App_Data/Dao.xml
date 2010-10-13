@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net"
+         xmlns:db="http://www.springframework.net/database">
+  <object type="Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer, Spring.Core">
+    <property name="ConfigSections" value="databaseSettings"/>
+  </object>
+  <db:provider id="DbProvider"
+               provider="SqlServer-2.0"
+               connectionString="Data Source=localhost;Initial Catalog=wudada_shop;Persist Security Info=True;User ID=sa;Password=168;"/>
+
+  <object id="NHibernateSessionFactory" type="Spring.Data.NHibernate.LocalSessionFactoryObject, Spring.Data.NHibernate20">
+    <property name="DbProvider" ref="DbProvider"/>
+    <property name="ExposeTransactionAwareSessionFactory" value="true" />
+    <property name="MappingAssemblies" >
+      <list>
+        <value>WuDADA-Console</value>
+        <value>WuDADA-Console.Member</value>
+        <value>WuDADA-Console.Auth</value>
+        <value>WuDADA-Web</value>
+        <value>WuDADA-Console.Poss</value>
+        <value>WuDADA-Console.Shop</value>
+      </list>
+    </property>
+
+    <property name="HibernateProperties">
+      <dictionary>
+        <entry key="hibernate.connection.provider" value="NHibernate.Connection.DriverConnectionProvider"/>
+        <entry key="dialect" value="NHibernate.Dialect.MsSql2005Dialect"/>
+        <entry key="hibernate.connection.driver_class" value="NHibernate.Driver.SqlClientDriver"/>
+      </dictionary>
+    </property>
+
+  </object>
+
+  <object id="HibernateTransactionManager"
+      type="Spring.Data.NHibernate.HibernateTransactionManager, Spring.Data.NHibernate20">
+
+    <property name="DbProvider" ref="DbProvider"/>
+    <property name="SessionFactory" ref="NHibernateSessionFactory"/>
+
+  </object>
+
+  <object id="HibernateTemplate" type="Spring.Data.NHibernate.HibernateTemplate">
+    <property name="SessionFactory" ref="NHibernateSessionFactory" />
+    <property name="TemplateFlushMode" value="Auto" />
+    <property name="CacheQueries" value="true" />
+  </object>
+
+  <object id="autoProxyCreator"
+            type="Spring.Aop.Framework.AutoProxy.DefaultAdvisorAutoProxyCreator, Spring.Aop">
+  </object>
+
+  <object id="transactionAdvisor"
+          type="Spring.Transaction.Interceptor.TransactionAttributeSourceAdvisor, Spring.Data">
+    <property name="TransactionInterceptor" ref="transactionInterceptor"/>
+  </object>
+
+  <object id="transactionInterceptor"
+          type="Spring.Transaction.Interceptor.TransactionInterceptor, Spring.Data">
+    <property name="TransactionManager" ref="HibernateTransactionManager"/>
+    <!--note do not have converter from string to this property type registered-->
+    <property name="TransactionAttributeSource" ref="attributeTransactionAttributeSource"/>
+  </object>
+
+  <object id="attributeTransactionAttributeSource"
+          type="Spring.Transaction.Interceptor.AttributesTransactionAttributeSource, Spring.Data">
+  </object>
+
+</objects>
