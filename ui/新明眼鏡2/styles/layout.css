@@ -42,7 +42,7 @@ a{outline:none; text-decoration:none; color:#660000; background-color:#FFFFFF;}
 
 div.wrapper{
 	display:block;
-	width:100%;
+	width:1000px;
 	text-align:left;
 	}
 
@@ -82,34 +82,32 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 #topline{
 	padding:10px 0;
 	}
-
-#topline ul{
+	
+#topline ul
+{
 	float:left;
-	margin:6px 0 0 0;
-	padding:0;
-	list-style:none;
-	}
-
-#topline li{
-	display:inline;
-	margin:0 8px 0 0;
-	padding:0 10px 0 0;
-	border-right:1px solid #999999;
-	}
-
-#topline li.last{
-	margin-right:0;
-	padding-right:0;
-	border:none;
-	}
-
-#topline #search{
-	display:block;
-	float:right;
 	margin:0;
 	padding:0;
-	overflow:hidden;
+	list-style:none;
+	color:#FFFFFF;
 	}
+
+#topline ul li{display:inline;}
+
+#topline ul li a{color:#FFFFFF;}
+
+#topline ul li.current a{text-decoration:underline; color:#FFFF00; }
+
+#topline #search
+{
+	display: block;
+	float: right;
+	margin: 0;
+	padding: 0 0 0 35px;
+	overflow: hidden;
+	width: 274px;
+	background-repeat: no-repeat;
+}
 
 /* ----------------------------------------------Header-------------------------------------*/
 
