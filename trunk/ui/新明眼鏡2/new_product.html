@@ -6,63 +6,45 @@
 <meta name="keywords" content="新明眼鏡、眼鏡、隱形眼鏡、太陽鏡、名牌眼鏡" />
 <meta name="description" content="新明眼鏡、眼鏡、隱形眼鏡、太陽鏡、名牌眼鏡" />
 <link rel="stylesheet" href="styles/layout.css" type="text/css" />
-<!--<script type="text/javascript" src="scripts/jquery-1.4.1.min.js"></script>
-<script type="text/javascript" src="scripts/jquery.slidepanel.setup.js"></script>
-<script type="text/javascript" src="scripts/jquery.cycle.min.js"></script>
-<script type="text/javascript" src="scripts/jquery.cycle.setup.js"></script>-->
-<!-- This includes the ImageFlow CSS and JavaScript -->
-<!--<link rel="stylesheet" href="style.css" type="text/css" />-->
-		<link rel="stylesheet" href="imageflow.packed.css" type="text/css" />
-		<script type="text/javascript" src="imageflow.packed.js"></script>
+<script type="text/javascript" src="scripts/jquery-1.4.1.min.js"></script>
+<link rel="stylesheet" href="imageflow.packed.css" type="text/css" />
+<script type="text/javascript" src="imageflow.packed.js"></script>
 
-    <script type="text/javascript" defer="defer"> 
+    <script type="text/javascript" defer="defer">
         domReady(function() {
-			var basic_2 = new ImageFlow();
-            basic_2.init({ 
+            var basic_2 = new ImageFlow();
+            basic_2.init({
                 ImageFlowID: 'basic_2'
-                ,slider:true  
-                ,imageScaling:true                   //影像縮放切換 
-                ,imageFocusMax: 3                    //左右的顯示張數
-                //,imagesM: 1                          // 所有影像的顯示比例 
-	            ,imageFocusM: 1                      //圖片的顯示比例
-	            ,xStep: 130                          //圖片x軸間距
-                ,opacity: true                       //透明效果
-				,opacityArray: [10,5,3,1]            //透明效果設定10~1
-                ,reflectionP: 0.5                    //圖片高度縮放比例                   
-                ,onClick: function() {window.open(this.url, '_blank');}  //連結另開視窗
-                ,reflections: true });
+                , slider: false                      //滾桿
+                , circular: true                     //圓形的slide 不會有左右到底
+                , buttons: false                     //左右按鈕
+                , slideshow: true                    //幻燈片播放
+                , slideshowAutoplay: true            //自動播放
+                , slideshowSpeed: 3000               //播放時間(毫秒)
+                , glideToStartID: false
+                , imageScaling: true                   //影像縮放切換 
+                , imageFocusMax: 5                    //左右的顯示張數
+                , imagesM: 1                       //所有影像的顯示比例
+                , startID: 3                         //從第幾張開始
+	            , imageFocusM: 1                      //圖片的顯示比例
+	            , xStep: 130                          //圖片x軸間距
+                , opacity: true                       //透明效果
+				, opacityArray: [10, 5, 3, 1]            //透明效果設定10~1
+                , reflectionP: 0.25                   //透明圖片高度縮放比例                   
+                , onClick: function() { window.open(this.url, '_blank'); }  //連結另開視窗
+                , reflections: true
+            });
 
-		});
+        });
 	</script> 
 </head>
 <body id="top">
-<div class="wrapper col0">
-  <div id="topline">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="#">Login</a></li>
-      <li><a href="#">Join</a></li>
-      <li class="last"><a href="#">Contact</a></li>
-    </ul>
-    <div id="search">
-      <form action="#" method="post">
-        <fieldset>
-          <legend>Site Search</legend>
-          <input type="text" value="Search Our Website&hellip;"  onfocus="this.value=(this.value=='Search Our Website&hellip;')? '' : this.value ;" />
-          <input type="submit" name="go" id="go" value="Search" />
-        </fieldset>
-      </form>
-    </div>
-    <br class="clear" />
-  </div>
-</div>
 <!-- ####################################################################################################### -->
 <div class="wrapper col1">
-  <div id="header">
+  <div id="header" style="background-color: #000000; ">
     <div id="topnav">
       <ul>
         <li class="last"><a href="service.html">Service</a><span>眼鏡與我</span></li>
-        <li><a href="member.html">Member</a><span>會員專區</span></li>
         <li><a href="product_list.html">Products</a><span>產品櫥窗</span>
           <ul>
             <li><a href="brand.html">品牌</a></li>
@@ -82,8 +64,8 @@
   </div>
 </div>
 <!-- ####################################################################################################### -->
-<div class="wrapper col2">
-  <div id="breadcrumb">
+<div class="wrapper col0">
+  <div id="topline" style="background-color:#333333;">
     <ul>
       <li class="first">您的位置</li>
       <li>&#187;</li>
@@ -91,6 +73,7 @@
       <li>&#187;</li>
       <li class="current"><a href="news.html">時尚新品</a></li>
     </ul>
+    <br class="clear" />
   </div>
 </div>
 <!-- ####################################################################################################### -->
@@ -108,59 +91,12 @@
 			<img src="images/demo/new7.jpg" longdesc="images/demo/new7.jpg" alt="太陽眼鏡" />
 	  </div>
     </div>
-    <!--<div class="column">
-      <div class="subnav">
-        <h2>產品分類</h2>
-        <ul>
-          <li><a href="#">品牌</a>
-            <ul>
-              <li><a href="#">日系品牌</a>
-                <ul>
-                  <li><a href="#">興市</a></li>
-                  <li><a href="#">EFFECTOR</a></li>
-                  <li><a href="#">YELLOW PLUS</a></li>
-                  <li><a href="#">內田孝昭</a></li>
-                </ul>
-              </li>
-              <li><a href="#">歐系品牌</a>
-                <ul>
-                  <li><a href="#">GUCCI</a></li>
-                  <li><a href="#">LV</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><a href="#">分類</a>
-            <ul>
-              <li><a href="#">學生</a></li>
-              <li><a href="#">流行</a></li>
-              <li><a href="#">運動</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div class="sponsors">
-        <h2>熱賣商品</h2>
-        <div class="b_250"><a href="#"><img src="images/demo/new7.jpg" alt="" width="250" height="250"/></a></div>
-        <div class="b_125">
-          <ul>
-            <li><a href="#"><img src="images/demo/new1.jpg" alt="" width="125" height="125"/></a></li>
-            <li><a href="#"><img src="images/demo/new2.jpg" alt="" width="125" height="125"/></a></li>
-            <li><a href="#"><img src="images/demo/new3.jpg" alt="" width="125" height="125"/></a></li>
-            <li><a href="#"><img src="images/demo/new4.jpg" alt="" width="125" height="125"/></a></li>
-            <li><a href="#"><img src="images/demo/new5.jpg" alt="" width="125" height="125"/></a></li>
-            <li class="last"><a href="#"><img src="images/demo/new6.jpg" alt="" width="125" height="125"/></a></li>
-          </ul>
-          <div class="clear"></div>
-        </div>
-      </div>
-    </div>-->
     <br class="clear" />
   </div>
 </div>
 <!-- ####################################################################################################### -->
 <div class="wrapper col5">
-  <div id="copyright">
+  <div id="copyright" style="background-color: #191919; ">
     <p class="fl_left">Copyright © 2010 <a href="index.html">新明眼鏡</a>. All rights reserved. </p>
     <p class="fl_right">Site created by <a href="http://wudada.org" title="WuDADA Design">WuDADA Design</a></p>
     <br class="clear" />
