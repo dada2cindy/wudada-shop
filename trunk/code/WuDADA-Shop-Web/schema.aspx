@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:Panel ID="pnlLogin" runat="server" Visible="true">
+        <asp:Panel ID="pnlLogin" runat="server" Visible="true" DefaultButton="btnLogin">
             <table border="0" cellpadding="3" cellspacing="0" width="300px" 
                 bgcolor="#FFFFFF" align="center">
                 <tr align="left" valign="top">

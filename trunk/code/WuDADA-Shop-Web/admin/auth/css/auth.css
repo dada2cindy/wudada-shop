@@ -1,0 +1,238 @@
+﻿/* CSS Document */
+
+#title
+{
+	color: #006F6F;
+	font-weight: bold;
+	font-size: 16px;
+	padding-top: 5px;
+}
+body {
+	background-color: #FFFFFF;
+	margin:auto;	
+}
+.admTable
+{
+	border: 1px solid #58a960;
+	font-size: 13px;
+	color: #000000;
+}
+.mg_down{
+	color: #85b126;
+	font-size: 13px;
+	text-align: center;
+	padding-top: 8px;
+}
+.menuParent {
+	font-size: 13px;
+	font-weight: bold;
+	color: #000000;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 4px;
+        padding-right: 2px;
+}
+.menuSelected {
+	color: #000099;
+}
+.menuNode {
+	font-size: 13px;
+	color: #777777;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 3px;
+}
+
+.menuNode a:hover{
+	color: #ff0000;
+}
+.masterPageDown{
+	font-size: 13px;
+	color: #FFFFFF;
+}
+.labelTreeNode{
+        font-size: 13px;
+	color: #000000;
+        padding-top: 5px;
+	padding-left: 5px;
+}
+.labelHeader{
+    font-size: 13px;
+	color: #000000;
+	padding-left: 10px;
+}
+.editText{
+	font-size: 13px;
+	color: #9F1000;
+}
+.labelText{
+	font-size: 13px;
+	color: #000000;
+}
+.accountAddRBL{
+        font-size: 13px;
+	color: #000000;
+}
+.labelMsg{
+        font-size: 13px;
+	color: #ff0000;
+}
+.labelWatermark{
+	font-size: 13px;
+	color: #838383;
+}
+.labelAlert{
+        font-size: 11px;
+	color: #428cc4;
+}
+.panelSiteMap{
+	font-size: 13px;
+	color: #003399;
+	text-decoration: none;
+}
+.panelSiteMap a{
+	font-size: 13px;
+	color: #003399;
+	text-decoration: none;
+}
+.panelSiteMap a:hover{
+	color: #ff0000;
+}
+.gvHeader{
+	font-size: 13px;
+	color: #eeeeee;
+	font-weight: bold;
+	background-color: #308238;
+	height: 30px;
+	text-align: left;  
+}
+.gvHeader2
+{
+	border-style: solid;
+	border-width: 1px;
+	font-size: 13px;
+	color: #eeeeee;
+	font-weight: bold;
+	background-color: #2766a1;
+	height: 30px;
+	text-align: center;
+}	 
+.gvHeader a{
+	font-size: 13px;
+	color: #eeeeee;
+	font-weight: bold;
+	background-color: #308238;
+	height: 30px;
+	text-align: center; 
+
+}
+	
+
+.gvRow{
+	font-size: 13px;
+	color: #444444;
+	height: 25px;
+}
+.gvRow2
+{
+	border-style: solid;
+	border-width: 1px;
+	font-size: 13px;
+	color: #444444;
+	height: 25px;
+} 
+.gvCellLabel{
+	color: #FFFFFF;	
+	background-color:#308238;
+	height: 22px;
+	text-align: center;
+    vertical-align:middle;
+   
+	}
+.gvPage
+{
+	font-size: 13px;
+	font-weight: bold;
+	color: #666666;
+	padding-top: 2px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	text-align: center;
+}
+.gvPage span {
+        color: #ffffff;
+	padding-top: 0px;
+	padding-right: 4px;
+	padding-bottom: 0px;
+	padding-left: 4px;
+	background-color: #04931c;
+	border: 1px solid #0f3c61;
+}
+.gvPage a{
+	font-size: 13px;
+	font-weight: bold;
+	color: #cc1800;
+	padding-top: 0px;
+	padding-right: 4px;
+	padding-bottom: 0px;
+	padding-left: 4px;
+	background-color: #FFFFFF;
+	border: 1px solid #04931c;
+	text-decoration: none;
+}
+.gvPage a:hover{
+	font-size: 13px;
+	font-weight: bold;
+	color: #E12D00;
+	border: 1px solid #0000CC;
+	padding-top: 0px;
+	padding-right: 4px;
+	padding-bottom: 0px;
+	padding-left: 4px;
+	background-color: #f0f7e8;
+	border: 1px solid #389F15;
+}
+
+
+/************ Calendar Styles ***********************/
+
+.CalnedarImg
+{
+	cursor:hand;	
+}
+
+.MyCalendar .ajax__calendar_container {
+    border:1px solid #646464;
+    background-color: #FFFACD;
+    color: red;
+}
+
+.MyCalendar ajax__calendar_today 
+{
+	cursor:pointer;
+    color: red;
+    font-weight:bold;
+    padding-top:3px;
+}
+
+.MyCalendar .ajax__calendar_other .ajax__calendar_day,
+.MyCalendar .ajax__calendar_other .ajax__calendar_year {
+    color: #646464;
+}
+
+.MyCalendar .ajax__calendar_hover .ajax__calendar_day,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_month,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_year 
+{
+	background-color:#EDF9FF;
+    color: #0066CC;
+    font-weight:bold;
+}
+
+.MyCalendar .ajax__calendar_active .ajax__calendar_day,
+.MyCalendar .ajax__calendar_active .ajax__calendar_month,
+.MyCalendar .ajax__calendar_active .ajax__calendar_year {
+    color: blue;
+    font-weight:bold;
+}
