@@ -1,0 +1,62 @@
+﻿/*Loading*/
+.modalBackground
+{
+	background-color : gray;
+	filter : alpha(opacity=70);
+	opacity : 0.7;
+}
+#updateAnimation
+{
+	color : Black;
+	background-color : #ffffff;
+	font-family : Arial;
+	font-size : 8pt;
+	font-weight : bold;
+	line-height : 30px;
+	height : 80px;
+	width:150px;
+	padding-left : 5px;
+	padding-right : 5px;
+}
+
+
+/*Modal Popup*/
+
+
+.modalPopup {
+	background-color:#ffffdd;
+	border-width:3px;
+	border-style:solid;
+	border-color:Gray;
+	padding:3px;	
+}
+
+.sampleStyleA {
+	background-color:#FFF;
+}
+
+.sampleStyleB {
+	background-color:#FFF;
+	font-family:monospace;
+	font-size:10pt;
+	font-weight:bold;
+}
+
+.sampleStyleC {
+	background-color:#ddffdd;
+	font-family:sans-serif;
+	font-size:10pt;
+	font-style:italic;
+}
+
+.sampleStyleD {
+	background-color:Blue;
+	color:White;
+	font-family:Arial;
+	font-size:10pt;
+}
+
+/*Modal Watermark*/
+.labelWatermark{
+	color: #838383;
+}

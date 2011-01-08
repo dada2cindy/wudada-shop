@@ -138,8 +138,8 @@ public partial class schema : BasePage
         //系統設定
         SystemParamVO spVO1 = new SystemParamVO();
         spVO1.MailSmtp = "smtp.gmail.com";
-        spVO1.Account = "test@pro2e.com.tw";
-        spVO1.SendEmail = "test@pro2e.com.tw";
+        spVO1.Account = "dada@pro2e.com.tw";
+        spVO1.SendEmail = "dada@pro2e.com.tw";
         spVO1.MailPort = "587";
         spVO1.IsEnableSSL = true;
         spVO1.Password = "28005786";
@@ -152,86 +152,54 @@ public partial class schema : BasePage
 
     private void initMenu()
     {
+        //商店
+        initMenu_Shop();
+        //進銷存
+        initMenu_Poss();
         //權限
-        initAuth();
-        //人事
-        initPersonnel();
-        //客戶
-        initCustomer();
-        //專案
-        initProject();
+        initMenu_Auth();
         //系統設定
-        iniSystem();
+        iniMenu_System();
         //個人專區
-        iniPerson();
+        iniMenu_Person();
 
         grantAdminPermit();
     }
 
-    private void iniPerson()
+    private void iniMenu_Person()
     {
         MenuFunc menuFunc = new MenuFunc("個人專區", null);
         myService.DaoInsert(menuFunc);
 
         MenuFunc m1 = authService.AddSubMenu(menuFunc, "使用者資訊", "admin/personal/LoginUserDetail.aspx");
-        MenuFunc m2 = authService.AddSubMenu(menuFunc, "工作日誌", "admin/personal/WorkDiary.aspx");
     }
 
-    private void iniSystem()
+    private void iniMenu_System()
     {
-        MenuFunc menuFunc = new MenuFunc("系統設定", null);
+        MenuFunc menuFunc = new MenuFunc("系統管理", null);
         myService.DaoInsert(menuFunc);
 
         MenuFunc m1 = authService.AddSubMenu(menuFunc, "系統參數設定", "admin/system/SystemSettingList.aspx");
+        MenuFunc m2 = authService.AddSubMenu(menuFunc, "系統更新LOG", "admin/system/SystemUpdateList.aspx");
+        MenuFunc m3 = authService.AddSubMenu(menuFunc, "系統LOG查詢", "admin/system/SystemLogList.aspx");
     }
 
-    private void initProject()
+    private void initMenu_Poss()
     {
-        MenuFunc menuFunc = new MenuFunc("專案管理", null);
+        MenuFunc menuFunc = new MenuFunc("進銷存管理", null);
         myService.DaoInsert(menuFunc);
-
-        MenuFunc m1 = authService.AddSubMenu(menuFunc, "報價管理", "admin/project/QuoteList.aspx");
-        authService.AddOtherPath(m1, "admin/project/QuoteDetail.aspx");
-        authService.AddOtherPath(m1, "admin/project/QuoteDetailMain.aspx");
-
-        MenuFunc m2 = authService.AddSubMenu(menuFunc, "專案管理", "admin/project/ProjectList.aspx");
-        authService.AddOtherPath(m2, "admin/project/ProjectDetail.aspx");
-
-        MenuFunc m3 = authService.AddSubMenu(menuFunc, "專案類別管理", "admin/project/TypeList.aspx");
-        authService.AddOtherPath(m3, "admin/project/TypeDetail.aspx");
     }
 
-    private void initCustomer()
+    private void initMenu_Shop()
     {
-        MenuFunc menuFunc = new MenuFunc("客廠管理", null);
+        MenuFunc menuFunc = new MenuFunc("商店管理", null);
         myService.DaoInsert(menuFunc);
-
-        MenuFunc m1 = authService.AddSubMenu(menuFunc, "類別管理", "admin/customer/TypeList.aspx");
-        authService.AddOtherPath(m1, "admin/customer/TypeDetail.aspx");
-
-        MenuFunc m2 = authService.AddSubMenu(menuFunc, "客廠資訊管理", "admin/customer/CustomerList.aspx");
-        authService.AddOtherPath(m2, "admin/customer/CustomerDetail.aspx");
-    }
-
-    private void initPersonnel()
-    {
-        MenuFunc menuFunc = new MenuFunc("人事管理", null);
-        myService.DaoInsert(menuFunc);
-
-        MenuFunc m1 = authService.AddSubMenu(menuFunc, "部門管理", "admin/employee/DepartmentList.aspx");
-        authService.AddOtherPath(m1, "admin/employee/DepartmentDetail.aspx");
-
-        MenuFunc m2 = authService.AddSubMenu(menuFunc, "專長管理", "admin/employee/ExpertList.aspx");
-        authService.AddOtherPath(m2, "admin/employee/ExpertDetail.aspx");
-
-        MenuFunc m3 = authService.AddSubMenu(menuFunc, "員工資訊管理", "admin/employee/EmployeeList.aspx");
-        authService.AddOtherPath(m3, "admin/employee/EmployeeDetail.aspx");
     }
 
     /// <summary>
     /// 權限設定
     /// </summary>
-    private void initAuth()
+    private void initMenu_Auth()
     {
         MenuFunc menuFunc = new MenuFunc("權限管理", null);
         myService.DaoInsert(menuFunc);

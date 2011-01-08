@@ -1,0 +1,43 @@
+﻿.gvPage
+{
+	font-size: 13px;
+	color: #FFFFFF;
+	padding-top: 2px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	text-align: center;
+}
+.gvPage span {
+    color: #FF0000;
+	padding-top: 0px;
+	padding-right: 4px;
+	padding-bottom: 0px;
+	padding-left: 4px;
+	background-color: #FFFFFF;
+	border: 1px solid #0f5391;
+}
+.gvPage a
+{
+	font-size: 13px;
+	color: #666666;
+	padding-top: 0px;
+	padding-right: 4px;
+	padding-bottom: 0px;
+	padding-left: 4px;
+	background-color: #FFFFFF;
+	border: 1px solid #181b22;
+	text-decoration: none;
+}
+.gvPage a:hover{
+	font-size: 13px;
+	color: #ffffff;
+	border: 1px solid #181b22;
+	padding-top: 0px;
+	padding-right: 4px;
+	padding-bottom: 0px;
+	padding-left: 4px;
+	background-color: #0f5391;
+	border: 1px solid #092c4c;
+	text-decoration: none;
+}
