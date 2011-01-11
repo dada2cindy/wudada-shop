@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 																																										
 body {
@@ -246,6 +246,7 @@ body {
 	color: #000099;
 }
 .menuNode {
+	width: 100%;
 	color: #777777;
 	padding-top: 3px;
 	padding-bottom: 3px;
