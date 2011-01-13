@@ -22,8 +22,8 @@ using com.wudada.console.service.system.vo;
 
 public partial class schema : BasePage
 {
-    readonly string PASS_WORD = "dada168";    
-    readonly string[] ASSEMBLES = new string[] { "WuDADA-Console", "WuDADA-Console.Member", "WuDADA-Console.Auth", "WuDADA-Console.Poss", "WuDADA-Console.Shop" };
+    readonly string PASS_WORD = "dada168";
+    readonly string[] ASSEMBLES = new string[] { "WuDADA-Console", "WuDADA-Console.Member", "WuDADA-Console.Auth", "WuDADA-Console.Poss", "WuDADA-Console.Shop", "WuDADA-Console.Information" };
 
     IAuthService authService;
 
