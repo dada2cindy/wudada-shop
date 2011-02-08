@@ -19,18 +19,21 @@ using NHibernate.Impl;
 using Spring.Core.IO;
 using System.Xml;
 using com.wudada.console.service.system.vo;
+using com.wudada.console.service.system;
 
 public partial class schema : BasePage
 {
     readonly string PASS_WORD = "dada168";
-    readonly string[] ASSEMBLES = new string[] { "WuDADA-Console", "WuDADA-Console.Member", "WuDADA-Console.Auth", "WuDADA-Console.Poss", "WuDADA-Console.Shop", "WuDADA-Console.Information" };
+    readonly string[] ASSEMBLES = new string[] { "WuDADA-Console", "WuDADA-Console.Member", "WuDADA-Console.Auth", "WuDADA-Console.Poss", "WuDADA-Console.Shop", "WuDADA-Console.Information", "WuDADA-Console.Advertisement" };
 
     IAuthService authService;
+    ISystemService systemService;
 
     protected new void Page_Load(object sender, EventArgs e)
     {
         base.Page_Load(sender, e);
         authService = (IAuthService)ctx.GetObject("AuthService");
+        systemService = (ISystemService)ctx.GetObject("SystemService");
 
         if (!IsPostBack)
         {
@@ -138,7 +141,7 @@ public partial class schema : BasePage
         //系統設定
         SystemParamVO spVO1 = new SystemParamVO();
         spVO1.MailSmtp = "smtp.gmail.com";
-        spVO1.Account = "dada@pro2e.com.tw";
+        spVO1.Account = "test@pro2e.com.tw";
         spVO1.SendEmail = "dada@pro2e.com.tw";
         spVO1.MailPort = "587";
         spVO1.IsEnableSSL = true;
@@ -146,42 +149,101 @@ public partial class schema : BasePage
         spVO1.ComName = "WuDADA";
         spVO1.ComEngName = "WuDADA";
         spVO1.ComCEO = "WuDADA";
-
         myService.DaoInsert(spVO1);
+
+        //公司簡介
+        myService.DaoInsert(new ItemParamVO("公司簡介", "關於新明", "關於新明"));
+        myService.DaoInsert(new ItemParamVO("公司簡介", "聯絡資訊", "聯絡資訊"));
+
+        //品牌管理
+        myService.DaoInsert(new ItemParamVO("品牌管理", "日系品牌", "日系品牌"));
+        myService.DaoInsert(new ItemParamVO("品牌管理", "歐系品牌", "歐系品牌"));
+
+        //資訊管理
+        myService.DaoInsert(new ItemParamVO("資訊管理", "最新消息", "最新消息"));
+        myService.DaoInsert(new ItemParamVO("資訊管理", "眼鏡與我", "眼鏡與我"));
+
+        //廣告管理
+        myService.DaoInsert(new ItemParamVO("廣告管理", "首頁廣告", "首頁廣告"));
+        myService.DaoInsert(new ItemParamVO("廣告管理", "最新商品", "最新商品"));
+        myService.DaoInsert(new ItemParamVO("廣告管理", "最新消息", "最新消息"));
+        myService.DaoInsert(new ItemParamVO("廣告管理", "眼鏡與我", "眼鏡與我"));
     }
 
     private void initMenu()
     {
+        //公司簡介
+        initComInfo();
         //商店
         initMenu_Shop();
+        //文章資訊管理
+        initInfo();
+        //廣告管理
+        initAdInfo();
         //進銷存
-        initMenu_Poss();
-        //權限
-        initMenu_Auth();
-        //系統設定
+        //initMenu_Poss();
+        //系統管理
         iniMenu_System();
         //個人專區
-        iniMenu_Person();
+        //iniMenu_Person();
+        //權限
+        initMenu_Auth();
 
         grantAdminPermit();
     }
 
-    private void iniMenu_Person()
+    private void initComInfo()
     {
-        MenuFunc menuFunc = new MenuFunc("個人專區", null);
+        MenuFunc menuFunc = new MenuFunc("公司簡介", null);
         myService.DaoInsert(menuFunc);
 
-        MenuFunc m1 = authService.AddSubMenu(menuFunc, "使用者資訊", "admin/personal/LoginUserDetail.aspx");
+        MenuFunc m1 = authService.AddSubMenu(menuFunc, "關於新明", "admin/system/ComInfo1.aspx");
+        MenuFunc m2 = authService.AddSubMenu(menuFunc, "聯絡資訊", "admin/system/ComInfo2.aspx");
     }
 
-    private void iniMenu_System()
+    private void initMenu_Shop()
     {
-        MenuFunc menuFunc = new MenuFunc("系統管理", null);
+        MenuFunc menuFunc = new MenuFunc("商店管理", null);
         myService.DaoInsert(menuFunc);
 
-        MenuFunc m1 = authService.AddSubMenu(menuFunc, "系統參數設定", "admin/system/SystemSettingList.aspx");
-        MenuFunc m2 = authService.AddSubMenu(menuFunc, "系統更新LOG", "admin/system/SystemUpdateList.aspx");
-        MenuFunc m3 = authService.AddSubMenu(menuFunc, "系統LOG查詢", "admin/system/SystemLogList.aspx");
+        MenuFunc m1 = authService.AddSubMenu(menuFunc, "分類管理", "admin/shop/ClassfyList.aspx");
+        authService.AddOtherPath(m1, "admin/shop/ClassfyDetail.aspx");
+
+        MenuFunc m2 = authService.AddSubMenu(menuFunc, "品牌管理", "admin/shop/BrandList.aspx");
+        authService.AddOtherPath(m2, "admin/shop/BrandDetail.aspx");
+
+        MenuFunc m3 = authService.AddSubMenu(menuFunc, "商品管理", "admin/shop/ProductList.aspx");
+        authService.AddOtherPath(m3, "admin/shop/ProductDetail.aspx");
+    }
+
+    private void initInfo()
+    {
+        MenuFunc menuFunc = new MenuFunc("資訊管理", null);
+        myService.DaoInsert(menuFunc);
+
+        MenuFunc m1 = authService.AddSubMenu(menuFunc, "最新消息管理", "admin/info/NewsList.aspx");
+        authService.AddOtherPath(m1, "admin/info/NewsDetail.aspx");
+
+        MenuFunc m2 = authService.AddSubMenu(menuFunc, "眼鏡與我管理", "admin/info/InfoList.aspx");
+        authService.AddOtherPath(m2, "admin/info/InfoDetail.aspx");
+    }
+
+    private void initAdInfo()
+    {
+        MenuFunc menuFunc = new MenuFunc("廣告管理", null);
+        myService.DaoInsert(menuFunc);
+
+        MenuFunc m1 = authService.AddSubMenu(menuFunc, "首頁廣告管理", "admin/adInfo/Ad1_List.aspx");
+        authService.AddOtherPath(m1, "admin/adInfo/Ad1_Detail.aspx");
+
+        MenuFunc m2 = authService.AddSubMenu(menuFunc, "最新商品廣告管理", "admin/adInfo/Ad2_List.aspx");
+        authService.AddOtherPath(m2, "admin/adInfo/Ad2_Detail.aspx");
+
+        MenuFunc m3 = authService.AddSubMenu(menuFunc, "最新消息廣告管理", "admin/adInfo/Ad3_List.aspx");
+        authService.AddOtherPath(m3, "admin/adInfo/Ad3_Detail.aspx");
+
+        MenuFunc m4 = authService.AddSubMenu(menuFunc, "眼鏡與我廣告管理", "admin/adInfo/Ad4_List.aspx");
+        authService.AddOtherPath(m4, "admin/adInfo/Ad4_Detail.aspx");
     }
 
     private void initMenu_Poss()
@@ -190,10 +252,22 @@ public partial class schema : BasePage
         myService.DaoInsert(menuFunc);
     }
 
-    private void initMenu_Shop()
+    private void iniMenu_System()
     {
-        MenuFunc menuFunc = new MenuFunc("商店管理", null);
+        MenuFunc menuFunc = new MenuFunc("系統管理", null);
         myService.DaoInsert(menuFunc);
+
+        MenuFunc m1 = authService.AddSubMenu(menuFunc, "系統參數設定", "admin/system/SystemSet.aspx");
+        //MenuFunc m2 = authService.AddSubMenu(menuFunc, "系統更新LOG", "admin/system/SystemUpdateList.aspx");
+        //MenuFunc m3 = authService.AddSubMenu(menuFunc, "系統LOG查詢", "admin/system/SystemLogList.aspx");
+    }
+
+    private void iniMenu_Person()
+    {
+        MenuFunc menuFunc = new MenuFunc("個人專區", null);
+        myService.DaoInsert(menuFunc);
+
+        MenuFunc m1 = authService.AddSubMenu(menuFunc, "使用者資訊", "admin/personal/LoginUserDetail.aspx");
     }
 
     /// <summary>
