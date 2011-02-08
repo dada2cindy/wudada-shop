@@ -11,6 +11,7 @@ using Spring.Context.Support;
 using com.wudada.console.service.auth.vo;
 using com.wudada.console.var;
 using com.wudada.console.service.auth;
+using com.wudada.web.util;
 
 /// <summary>
 /// WuDADAMailService 

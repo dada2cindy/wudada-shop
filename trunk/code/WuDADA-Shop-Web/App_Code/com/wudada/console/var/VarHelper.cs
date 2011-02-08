@@ -26,5 +26,45 @@ namespace com.wudada.console.var
         /// 廣告輪播-速度
         /// </summary>
         public static readonly string DISPLAY_AD_SLIDESHOW_SPEED = "5000";
+
+        /// <summary>
+        /// 公司簡介-關於新明
+        /// </summary>
+        public static readonly int WuDADA_ITEMPARAM_ID_COM_INFO1 = 1;
+
+        /// <summary>
+        /// 公司簡介-聯絡資訊
+        /// </summary>
+        public static readonly int WuDADA_ITEMPARAM_ID_COM_INFO2 = 2;
+
+        /// <summary>
+        /// 資訊管理-最新消息
+        /// </summary>
+        public static readonly int WuDADA_ITEMPARAM_ID_NEWS1 = 5;
+
+        /// <summary>
+        /// 資訊管理-眼鏡與我
+        /// </summary>
+        public static readonly int WuDADA_ITEMPARAM_ID_INFO1 = 6;
+
+        /// <summary>
+        /// 廣告管理-首頁廣告
+        /// </summary>
+        public static readonly int WuDADA_ITEMPARAM_ID_AD_INFO1 = 7;
+
+        /// <summary>
+        /// 廣告管理-最新商品
+        /// </summary>
+        public static readonly int WuDADA_ITEMPARAM_ID_AD_INFO2 = 8;
+
+        /// <summary>
+        /// 廣告管理-最新消息
+        /// </summary>
+        public static readonly int WuDADA_ITEMPARAM_ID_AD_INFO3 = 9;
+
+        /// <summary>
+        /// 廣告管理-眼鏡與我
+        /// </summary>
+        public static readonly int WuDADA_ITEMPARAM_ID_AD_INFO4 = 10;
     }
 }
