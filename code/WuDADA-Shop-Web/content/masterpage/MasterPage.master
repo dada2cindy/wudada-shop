@@ -1,0 +1,58 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="content_masterpage_MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>新 明 眼 鏡 - 為 您 打 造 值 得 信 賴 與 依 靠 的 伴 侶．．．．</title>
+    <meta name="keywords" content="新明眼鏡、眼鏡、隱形眼鏡、太陽鏡、名牌眼鏡" />
+    <meta name="description" content="新明眼鏡、眼鏡、隱形眼鏡、太陽鏡、名牌眼鏡" />
+    <link href="../../css/layout.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../../js/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery.slidepanel.setup.js"></script>
+    <script type="text/javascript" src="../../js/jquery.cycle.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery.cycle.setup.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body id="top" style="background-color: #191919; ">
+    <form id="form1" runat="server">
+    <!-- ####################################################################################################### -->
+<div class="wrapper col1">
+  <div id="header" style="background-color: #000000; ">
+    <div id="topnav">
+      <ul>
+        <li class="last"><a href="../info/service_list.aspx">Service</a><span>眼鏡與我</span></li>
+        <li><a href="../poss/product_list.aspx">Products</a><span>產品櫥窗</span>
+          <%--<ul>
+            <li><a href="../poss/brand_list.aspx">品牌</a></li>
+            <li><a href="../poss/class_list.aspx">類別</a></li>
+          </ul>--%>
+        </li>
+        <li><a href="../poss/new_product.aspx">New Arrival</a><span>時尚新品</span></li>
+        <li><a href="../info/news_list.aspx">News</a><span>最新消息</span></li>
+        <li><a href="../masterpage/about.aspx">About</a><span>關於新明</span></li>        
+      </ul>
+    </div>
+    <div id="logo">
+      <h1><a href="../masterpage/index.aspx"><strong>新明</strong>眼鏡</a></h1>
+      <p>為 您 打 造 值 得 信 賴 與 依 靠 的 伴 侶．．．．</p>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+<!-- ####################################################################################################### -->    
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+
+<!-- ####################################################################################################### -->
+<div class="wrapper col5">
+  <div id="copyright">
+    <p class="fl_left">Copyright © 2010 <a href="../masterpage/index.aspx">新明眼鏡</a>. All rights reserved. </p>
+    <p class="fl_right">Site created by <a href="http://wudada.org" title="WuDADA Design">WuDADA Design</a></p>
+    <br class="clear" />
+  </div>
+</div>
+    </form>
+</body>
+</html>
