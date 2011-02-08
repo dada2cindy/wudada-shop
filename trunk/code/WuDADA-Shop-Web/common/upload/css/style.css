@@ -1,0 +1,386 @@
+#divContent {
+	width:1000px;
+	background-color:white;
+	font:11px Tahoma;
+}
+
+pre {
+	font:11px Verdana;
+}
+
+.bodyStyle {
+	background-color:white;
+	margin:0px;
+	padding:0px;
+	font:11px Verdana;
+}
+
+.tdText {
+	font:11px Verdana;
+	color:#333333;
+}
+
+.headerOne {
+	font:11px Tahoma;
+	padding:0px;
+	text-align_:right; 
+	color:white; 
+	background-color:#555555;#315686; 
+	background-image_:url(../images/headerlogo.jpg); 
+	background-repeat_:no-repeat; 
+	height:22px;
+	width:1000px;
+}
+
+.headerTwo {
+	padding:0px;
+	background-color:#6B89AF; #315686; 
+	background-image:url(../images/header2.jpg); 
+	background-repeat:no-repeat; 
+	background-position:right; 
+	height:36px;
+	width:1000px;
+}
+
+.hlOver {
+	font:11px Tahoma;
+	color: white;
+	border:1px solid #AAAAAA;
+	background-color: #717171;
+	margin-bottom:2px;
+}
+.hlOut {
+	font:10px Tahoma;
+	color: white;
+	border:1px solid #555555;
+	margin-bottom:2px;
+}
+
+.optionalbold {
+	font:bold 11px Verdana;
+	color:#AA0000;
+}
+
+.optional{
+	font:11px Verdana;
+	color:#AA0000;
+}
+
+.option2{
+	font:11px Verdana;
+	color:#0033cc;
+	background-color___:#f6f9fc;
+	padding-left:4px;
+	padding-right:4px;
+}
+
+.purchaseLeft {
+	padding:8px;
+	text-align:center;
+	border-right:1px solid #BEC2C5;
+	border-bottom:1px solid #BEC2C5;
+	width:200px;
+	height:60px;
+	font:bold 14px Tahoma;
+	color:navy;
+}
+.purchaseLeftMidBottom {
+	padding:8px;
+	text-align:center;
+	border-right:1px solid #BEC2C5;
+	width:317px;
+	font:12px Tahoma;
+	color:black;
+}
+
+.purchaseLeftBottom {
+	padding:8px;
+	text-align:center;
+	border-right:1px solid #BEC2C5;
+	width:200px;
+	height:60px;
+	font:bold 14px Tahoma;
+	color:navy;
+}
+.purchaseMid {
+	padding:8px;
+	text-align:center;
+	border-right:1px solid #BEC2C5;
+	border-bottom:1px solid #BEC2C5;
+	font:11px Tahoma;
+	color:#333333;
+}
+.purchaseMidBottom {
+	padding:8px;
+	text-align:center;
+	border-right:1px solid #BEC2C5;
+	font:11px Tahoma;
+	color:#333333;
+}
+.purchaseRight {
+	padding:8px;
+	text-align:center;
+	border-bottom:1px solid #BEC2C5;
+	font:11px Tahoma;
+	color:#333333;
+}
+.purchaseRightBottom {
+	padding:8px;
+	text-align:center;
+	font:11px Tahoma;
+	color:#333333;
+}
+
+
+.purchaseHeader1 {
+	padding:8px;
+	text-align:center;
+	border-right:1px solid #BEC2C5;
+	font:bold 14px Tahoma;
+	color:#666666;
+	background-image:url('/images/purchase_header.gif');
+}
+.purchaseHeader2 {
+	padding:8px;
+	text-align:center;
+	border-right:1px solid #BEC2C5;
+	font:bold 14px Tahoma;
+	color:#666666;
+	background-image:url('/images/purchase_header.gif');
+}
+.purchaseHeader3 {
+	padding:8px;
+	text-align:center;
+	font:bold 14px Tahoma;
+	color:#666666;
+	background-image:url('/images/purchase_header.gif');
+}
+.purchaseLeft2 {
+	padding:8px;
+	text-align:center;
+	border-right:1px solid #BEC2C5;
+	border-top:1px solid #BEC2C5;
+	font:bold 14px Tahoma;
+	color:navy;
+}
+.purchaseMid2 {
+	padding:8px;
+	text-align:center;
+	border-right:1px solid #BEC2C5;
+	border-top:1px solid #BEC2C5;
+	font:bold 14px Tahoma;
+	color:#666666;
+
+}
+.purchaseRight2 {
+	padding:8px;
+	text-align:center;
+	border-top:1px solid #BEC2C5;
+	font:11px Verdana;
+}
+
+
+.purchaseSave {
+	font:12px Tahoma;
+	color:maroon;
+}
+
+.propertyLeft {
+	padding:8px;
+	text-align:left;
+	border-right:1px solid #BEC2C5;
+	border-bottom:1px solid #BEC2C5;
+	width:180px;
+	font:bold 11px Verdana;
+}
+.propertyLeftBottom {
+	padding:8px;
+	text-align:left;
+	border-right:1px solid #BEC2C5;
+	width:180px;
+	font:bold 11px Verdana;
+}
+.propertyRight {
+	padding:8px;
+	text-align:left;
+	border-bottom:1px solid #BEC2C5;
+	font:11px Verdana;
+}
+.propertyRightBottom {
+	padding:8px;
+	text-align:left;
+	font:11px Verdana;
+}
+.propertyPage {
+	background-color:white;
+	color:black;
+	border:1px solid #cccccc;
+	font:11px Verdana;
+}
+.propertyImage {
+	vertical-align:middle;
+	margin-right:3px;
+}
+.propertyEx {
+	font:11px Verdana;
+	margin-left:10px;
+	color:gray;
+}
+
+.footer {
+	padding:0px; 
+	text-align:right; 
+	color:white; 
+	font-size:12px; 
+	font-family:arial; 
+	background-color:#315686; 
+	background-image:url(../images/footer.jpg); 
+	background-repeat:no-repeat;
+	background-position:left;
+	height:36px;
+	width:1000px;
+	clear:both;
+}
+
+.footerAddress {
+	font:11px Tahoma;
+	margin-top:2px;
+	padding-right:10px;
+	float:right;
+	text-align:right;
+}
+
+.footerEmail {
+	margin-top:2px; 
+	padding-right:20px; 
+	float:right; 
+	text-align:right;
+}
+
+.copyright {
+	padding:2px; 
+	text-align:center; 
+	color:#315686; 
+	width:1000px;
+	font:11px Tahoma;
+}
+
+.paperBox {
+	background-color:white;
+	font:11px Verdana;
+	color:#444444;
+	border:1px solid #cccccc;
+	padding:15px;
+}
+
+.sampleCode {
+	background-color:white;
+	color:black;
+	border:1px solid #cccccc;
+	padding:15px;
+	font:12px Tahoma;
+}
+
+a {
+	font:11px Verdana;
+	color:#315686;
+	text-decoration:underline;
+}
+
+a:hover {
+	color:crimson;
+}
+
+a.white {
+	color:white;
+}
+
+a.linkTop:link {font:11px Verdana; color: white; text-decoration: none;}
+a.linkTop:visited {font:11px Verdana; color: white; text-decoration: none;}
+a.linkTop:hover {font:11px Verdana; color: white; text-decoration: none;}
+
+.headerOneLeft	{
+	font: 20px tahoma;
+	padding-left: 30px;
+	float:left;
+	color: #FFFFFF;
+}
+
+.headerOneRight	{
+	float:right;
+	padding-top:4px;
+	margin-right:40px;
+	padding-bottom:2px;
+}
+
+span.inc	{
+	color: #CCCCCC;
+}
+
+.h5		{
+	color: #666666;
+	font: bold 12px arial;
+}
+
+.h3		{
+	color: #666666;
+	font: bold 16px arial;
+}
+
+.h2	{
+	color: #666666;
+	font: bold 20px arial;
+}
+
+#sL {
+	width:200px;
+	text-align:left;
+	vertical-align:top;
+}
+
+#spr {
+	background-color:#6B89AF;
+	background-image_:url(../images/splitter.jpg);
+	width:6px;
+	cursor:e-resize;
+	font-size:1px;
+}
+
+#sR {
+	padding-left:20px;
+	padding-bottom:5px;
+	padding-top:5px;
+	background-image:url(../images/pagebg.jpg);
+	background-repeat:repeat-y;
+}
+
+#sM {
+	position:absolute; 
+	width:2px; 
+	border-right:1px solid #336699; 
+	display:none; 
+	cursor:e-resize;
+}
+
+li.sp	{
+	color:#0066cc;
+}
+
+.mainDiv {
+	font:11px Tahoma;
+	width:750px; 
+	padding-left:20px;
+	padding-top:5px;
+	margin:0px; 
+	background-image:url(/globalstyles/splitter/pagebg.jpg); 
+	background-repeat:repeat-y;
+}
+
+div.indent {
+	padding-left:10px;
+}
+
+table.right_panel  {
+	font:11px Verdana;
+	width:780px;
+	}
