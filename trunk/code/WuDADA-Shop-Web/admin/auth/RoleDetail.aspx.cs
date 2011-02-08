@@ -12,30 +12,28 @@ using Spring.Context.Support;
 using Common.Logging;
 using com.wudada.console.service.auth;
 using com.wudada.console.service.auth.vo;
+using com.wudada.web.page;
+using com.wudada.console.service.common.vo;
 
-public partial class admin_auth_RoleDetail : System.Web.UI.Page
-{
-    ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-    
+public partial class admin_auth_RoleDetail : BasePage
+{ 
 	IAuthService authService;
     SessionHelper sessionHelper = new SessionHelper();
 
-    string LIST_PAGE = "RoleList.aspx";
+    string LIST_URL = "RoleList.aspx";
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        IApplicationContext ctx = ContextRegistry.GetContext();
+        base.Page_Load(sender, e);
         authService = (IAuthService)ctx.GetObject("AuthService");
-        
 
         if (!Page.IsPostBack)
         {
-            ClearData();
-
-            if (Request.QueryString["id"] != null)
+            if (!string.IsNullOrEmpty(Request.QueryString["id"]))
             {
                 UseUpdateMode();
-                LoadDataToUI(int.Parse(Request.QueryString["id"].ToString()));
+                hdnId.Value = Request.QueryString["id"].ToString();
+                LoadDataToUI(int.Parse(hdnId.Value));
             }
             else
             {
@@ -51,9 +49,10 @@ public partial class admin_auth_RoleDetail : System.Web.UI.Page
         
         authService.myService.DaoInsert(role);
 
-        string JsStr = JavascriptUtil.AlertJSAndRedirect("新增成功", LIST_PAGE);
+        string JsStr = JavascriptUtil.AlertJSAndRedirect(MsgVO.INSERT_OK, LIST_URL);
         ScriptManager.RegisterClientScriptBlock(lblMsg, lblMsg.GetType(), "data", JsStr, false);
     }
+
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
         LoginRole loginRole = authService.myService.DaoGetVOById<LoginRole>(int.Parse(lblId.Text));
@@ -62,13 +61,15 @@ public partial class admin_auth_RoleDetail : System.Web.UI.Page
 
         authService.myService.DaoUpdate(loginRole);
 
-        string JsStr = JavascriptUtil.AlertJSAndRedirect("更新成功",LIST_PAGE);
-        ScriptManager.RegisterClientScriptBlock(lblMsg, lblMsg.GetType(), "data", JsStr, false);
+        string JsStr = JavascriptUtil.AlertJSAndRedirect(MsgVO.UPDATE_OK, LIST_URL);
+        ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "data", JsStr, false);
     }
+
     protected void btnBack_Click(object sender, EventArgs e)
     {
-        Response.Redirect(LIST_PAGE);
+        Response.Redirect(LIST_URL);
     }
+
     private void UseAddMode()
     {
         btnAdd.Visible = true;
@@ -80,6 +81,7 @@ public partial class admin_auth_RoleDetail : System.Web.UI.Page
         btnAdd.Visible = false;
         btnUpdate.Visible = true;
     }
+
     private void LoadDataToUI(int id)
     {
         LoginRole role = authService.myService.DaoGetVOById<LoginRole>(id);
@@ -87,9 +89,5 @@ public partial class admin_auth_RoleDetail : System.Web.UI.Page
         lblId.Text = role.RoleId.ToString();
         txtRoleName.Text = role.RoleName;      
     }
-    private void ClearData()
-    {
-        lblId.Text = "";
-    
-    }
+ 
 }

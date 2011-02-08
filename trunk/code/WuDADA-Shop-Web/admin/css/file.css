@@ -1,0 +1,35 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/* 
+table{
+	width:auto;
+}
+*/
+
+.table-wide {
+	border-left: 0px solid #ffffff; 
+	border-right: 0px solid #ffffff; 
+	border-top: 0px solid #ffffff; 
+	border-bottom: 0px solid #ffffff;
+}
+
+.td-wide {
+	padding-left:3pt;
+	padding-right:3pt;
+	padding-top:5pt;
+	padding-bottom:5pt;
+	font-family:新細明體, Arial;
+	font-size:9pt;
+	line-height:2em;
+	color:#555555;
+	font-style: normal;
+	font-weight: normal;
+}
+
+.t09white   {
+	font-family:新細明體, Arial;
+	font-size:9pt;
+	line-height:1.5em;
+	color:#ffffff;
+}

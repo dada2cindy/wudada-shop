@@ -6,33 +6,30 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using com.wudada.web.util.page;
 using com.wudada.console.service.system;
-using Spring.Context;
 using com.wudada.web.sessionstate;
-using Spring.Context.Support;
-using Common.Logging;
 using com.wudada.console.service.auth;
 using com.wudada.console.service.auth.vo;
 using com.wudada.console.generic.util;
+using com.wudada.web.page;
+using com.wudada.console.service.common.vo;
 
 
-public partial class admin_auth_RoleDetail : System.Web.UI.Page
+public partial class admin_auth_RoleDetail : BasePage
 {
-    ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-    
-    AuthService authService;
+    IAuthService authService;
     SessionHelper sessionHelper = new SessionHelper();
 
     string LIST_URL = "UserList.aspx";
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        IApplicationContext ctx = ContextRegistry.GetContext();
-        authService = (AuthService)ctx.GetObject("AuthService");
+        base.Page_Load(sender, e);
+        authService = (IAuthService)ctx.GetObject("AuthService");
 
         if (!Page.IsPostBack)
         {
             SetConcrol();
-            if (Request.QueryString["id"] != null)
+            if (!string.IsNullOrEmpty(Request.QueryString["id"]))
             {
                 UseUpdateMode();
                 hdnId.Value = Request.QueryString["id"].ToString();
@@ -69,8 +66,8 @@ public partial class admin_auth_RoleDetail : System.Web.UI.Page
         SetLoginRoles(user);
         authService.myService.DaoInsert(user);
 
-        string JsStr = JavascriptUtil.AlertJSAndRedirect("新增成功", LIST_URL);
-        ScriptManager.RegisterClientScriptBlock(lblMsg, lblMsg.GetType(), "data", JsStr, false);
+        string JsStr = JavascriptUtil.AlertJSAndRedirect(MsgVO.INSERT_OK, LIST_URL);
+        ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "data", JsStr, false);
     }
 
     private void SetLoginRoles(LoginUser user)
@@ -104,8 +101,8 @@ public partial class admin_auth_RoleDetail : System.Web.UI.Page
         SetLoginRoles(user);
         authService.myService.DaoUpdate(user);
 
-        string JsStr = JavascriptUtil.AlertJSAndRedirect("更新成功", LIST_URL);
-        ScriptManager.RegisterClientScriptBlock(lblMsg, lblMsg.GetType(), "data", JsStr, false);
+        string JsStr = JavascriptUtil.AlertJSAndRedirect(MsgVO.UPDATE_OK, LIST_URL);
+        ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "data", JsStr, false);
     }
     protected void btnBack_Click(object sender, EventArgs e)
     {

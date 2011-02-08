@@ -16,7 +16,7 @@
                         <table width="100%" border="0" cellpadding="5" cellspacing="0" >
                             <tr>
                                 <td colspan="4" bgcolor="#F0F0F0" class="searchConHeader" >
-                                    查詢相關連結 
+                                    查詢
                                     <div class="add">
                                         <asp:ImageButton ID="imgbtnAdd" runat="server" height="23" 
                                             ImageUrl="../images/add_btn.jpg" OnClick="btnAdd_Click" width="62" />
@@ -25,7 +25,7 @@
                             </tr>
                             <tr>
                                 <td  >
-                                    群組名稱 <asp:TextBox ID="txtSearchTitle" runat="server" Width="190px"></asp:TextBox>                                                     
+                                    群組名稱 <asp:TextBox ID="txtSearch1" runat="server" Width="190px"></asp:TextBox>                                                     
                                 </td>
                             </tr>
                             <tr>
@@ -45,7 +45,7 @@
                <table width="100%" border="0" cellpadding="0" cellspacing="0" >
                             <tr>
                                 <td bgcolor="#F0F0F0" >
-                                    查詢結果<asp:Label ID="lblMsg" runat="server" CssClass="labelMsg" EnableViewState="False"></asp:Label></td>
+                                    查詢結果<asp:Label ID="lblMsg" runat="server" CssClass="labelMsg"></asp:Label></td>
                             </tr>
                             <tr>
                                 <td align="center">
