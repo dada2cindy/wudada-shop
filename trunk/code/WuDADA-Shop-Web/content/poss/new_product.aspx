@@ -54,7 +54,8 @@
       <div id="basic_2" class="imageflow" style="background-color: #000000; width: 100%; color: #FFFFFF;">
           <asp:Repeater ID="Repeater1" runat="server">
               <ItemTemplate>
-                <img id='<%#Eval("Id") %>' src="../../common/PictureShow.ashx?fileName=<%#Eval("ImgPath") %>&type=adpic" longdesc="../../common/PictureShow.ashx?fileName=<%#Eval("ImgPath") %>&type=adpic" alt='<%#Eval("Name") %>' />
+                <img id='<%#Eval("Id") %>' src="../../fileUpload/pic/ad/<%#Eval("ImgPath") %>" longdesc="../../fileUpload/pic/ad/<%#Eval("ImgPath") %>" alt='<%#Eval("Name") %>' />
+                <%--<img id='<%#Eval("Id") %>' src="../../common/PictureShow.ashx?fileName=<%#Eval("ImgPath") %>&type=adpic" longdesc="../../common/PictureShow.ashx?fileName=<%#Eval("ImgPath") %>&type=adpic" alt='<%#Eval("Name") %>' />--%>
                 <%--<img id="1" src="../../images/demo/new1.jpg" longdesc="../../images/demo/new1.jpg" alt="潮流眼鏡" />--%>
               </ItemTemplate>
           </asp:Repeater>			
