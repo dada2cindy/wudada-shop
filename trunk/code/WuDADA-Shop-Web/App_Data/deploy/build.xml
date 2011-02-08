@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"   ?>
+
+<project name="HsinMin" default="build2" basedir="../../" xmlns="http://nant.sf.net/nightly/2009-01-30-0.86/nant.xsd" >
+    <property name="Project.Name" value="HsinMin"/>
+    <property name="Target.Name" value="HsinMinWeb"/>
+    <property name="BuildFile.Dir" value="App_Data/deploy/"/>
+
+    <property name="Com.Name" value="Wudada"/>
+    <property name ="Formal.Config" value="${BuildFile.Dir}/config/formal/Web.xml" />
+    <property name="Tmp.Dir" value="${BuildFile.Dir}\tmp"/>
+    <property name="Tmp2.Dir" value="c:\HsinMin"/>
+    <property name ="Formal.Config" value="${BuildFile.Dir}/config/formal/Web.xml" />
+
+    <property name="Current.dir" value="${directory::get-current-directory()}" />
+    <property name="Project.Physical.Location" value="${directory::get-parent-directory(directory::get-parent-directory(Current.dir))}"/>
+    <property name ="Target.Physical.Location" value="H:\website\${Target.Name}" />
+
+    <property name="nant.settings.currentframework" value="net-3.5" />
+    <property name="net2" value="C:\Windows\Microsoft.NET\Framework\v2.0.50727"/>
+
+    <target name="copyXML">
+        <copy todir="d:\nothing\App_Data">
+            <fileset >
+                <include name="App_Code/**/*.xml" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="build2" description="compiles the source code">
+
+        <delete dir="${Tmp.Dir}" />
+        <copy todir="${Tmp.Dir}" overwrite="true" includeemptydirs="true" >
+            <fileset  basedir="${Project.Physical.Location}">
+                <include name="**/*.*" />
+                <exclude name="**/*.svn"/>
+                <exclude name="App_Data/deploy/**/*.*"/>
+            </fileset>
+        </copy>        
+
+        <echo message="移動Nhibernate設定檔"/>
+        <copy todir="${Tmp.Dir}\App_Data">
+            <fileset >
+                <include name="App_Code/**/*.xml" />
+            </fileset>
+        </copy>
+
+
+        <echo message="置換config"/>
+        <copy tofile="${Tmp.Dir}/Web.Config"  file="${Formal.Config}"  overwrite="true"/>
+
+        <delete dir="${Tmp2.Dir}" ></delete>
+
+        <echo message="進行Precompile"/>
+        <exec  program="${net2}/aspnet_compiler.exe" basedir="../../"
+               commandline="-nologo -v myweb -p ${Tmp.Dir} ${Tmp2.Dir}"
+               workingdir="."
+               failonerror="true" />
+
+        <copy todir="${Target.Physical.Location}">
+            <fileset basedir="${Tmp2.Dir}">
+                <include name="**/*.*" />
+            </fileset>
+        </copy>
+
+        <echo message="刪除暫存檔"/>
+        <delete dir="${Tmp2.Dir}" />
+        <delete dir="${Tmp.Dir}" />
+
+        <echo message="執行完畢"/>
+    </target>
+
+
+    <target name="build">
+        <echo message="建置開始"/>
+        <mkdir dir="${Tmp.Dir}"  />
+        <copy todir="${Tmp.Dir}">
+            <fileset >
+                <include name="**/*" />
+                <exclude name="App_Data/deploy/**"/>
+                <exclude name="App_Code/**/*.cs"/>
+            </fileset>
+        </copy>
+
+        <csc target="library" output="${Tmp.Dir}\Bin\complied.dll" debug="true"  >
+            <references>
+                <include name="Bin/**.dll"/>
+            </references>
+            <sources>
+                <include name="App_Code/**/*.cs" />
+
+            </sources>
+        </csc>
+
+
+        <move todir="../${Target.Name}" overwrite="true" includeemptydirs="true" >
+            <fileset  basedir="${Tmp.Dir}">
+                <include name="**/*.*" />
+                <exclude name="**/*.svn"/>
+            </fileset>
+        </move>
+
+        <!--置換config-->
+        <copy tofile="../${Target.Name}/Web.Config"  file="${Formal.Config}">
+
+        </copy>
+
+        <delete dir="${Tmp.Dir}" />
+        <echo message="建置完成"/>
+    </target>
+    <target name="doc" >
+        <ndoc>
+            <assemblies basedir="Bin">
+                <include name="Quartz.dll" />
+            </assemblies>
+            <summaries basedir="Bin">
+                <include name="NamespaceSummary.xml" />
+            </summaries>
+            <documenters>
+                <documenter name="MSDN">
+                    <property name="OutputDirectory" value="doc\MSDN" />
+                    <property name="HtmlHelpName" value="NAnt" />
+                    <property name="HtmlHelpCompilerFilename" value="hhc.exe" />
+                    <property name="IncludeFavorites" value="False" />
+                    <property name="Title" value="An NDoc Documented Class Library" />
+                    <property name="SplitTOCs" value="False" />
+                    <property name="DefaulTOC" value="" />
+                    <property name="ShowVisualBasic" value="True" />
+                    <property name="ShowMissingSummaries" value="True" />
+                    <property name="ShowMissingRemarks" value="True" />
+                    <property name="ShowMissingParams" value="True" />
+                    <property name="ShowMissingReturns" value="True" />
+                    <property name="ShowMissingValues" value="True" />
+                    <property name="DocumentInternals" value="False" />
+                    <property name="DocumentProtected" value="True" />
+                    <property name="DocumentPrivates" value="False" />
+                    <property name="DocumentEmptyNamespaces" value="False" />
+                    <property name="IncludeAssemblyVersion" value="False" />
+                    <property name="CopyrightText" value="" />
+                    <property name="CopyrightHref" value="" />
+                </documenter>
+            </documenters>
+        </ndoc>
+    </target>
+
+</project>
