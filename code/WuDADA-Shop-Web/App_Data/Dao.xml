@@ -7,6 +7,9 @@
   <db:provider id="DbProvider"
                provider="SqlServer-2.0"
                connectionString="Data Source=localhost;Initial Catalog=wudada_shop;Persist Security Info=True;User ID=sa;Password=168;"/>
+  <!--<db:provider id="DbProvider"
+               provider="SqlServer-2.0"
+               connectionString="Data Source=wudada.org;Initial Catalog=hsinmin;Persist Security Info=True;User ID=wudada;Password=dada2CINDY;"/>-->
 
   <object id="NHibernateSessionFactory" type="Spring.Data.NHibernate.LocalSessionFactoryObject, Spring.Data.NHibernate20">
     <property name="DbProvider" ref="DbProvider"/>
