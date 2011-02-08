@@ -35,7 +35,7 @@
                                 <tr>
                                     <td height="30px">
                                         ±b¸¹¡G
-                                        <asp:TextBox ID="txtSearchTitle" runat="server" Width="190px"></asp:TextBox>
+                                        <asp:TextBox ID="txtSearch1" runat="server" Width="190px"></asp:TextBox>
                                         &nbsp;
                                     </td>
                                 </tr>

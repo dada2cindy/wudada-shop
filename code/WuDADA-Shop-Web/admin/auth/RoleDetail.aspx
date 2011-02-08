@@ -45,6 +45,7 @@
                     </td>
                 </tr>
             </table>
+            <asp:HiddenField ID="hdnId" runat="server" />
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>

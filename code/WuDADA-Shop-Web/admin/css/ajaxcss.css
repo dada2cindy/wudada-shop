@@ -60,3 +60,45 @@
 .labelWatermark{
 	color: #838383;
 }
+
+/************ Calendar Styles ***********************/
+
+.CalnedarImg
+{
+	cursor:hand;	
+}
+
+.MyCalendar .ajax__calendar_container {
+    border:1px solid #646464;
+    background-color: #FFFACD;
+    color: red;
+}
+
+.MyCalendar ajax__calendar_today 
+{
+	cursor:pointer;
+    color: red;
+    font-weight:bold;
+    padding-top:3px;
+}
+
+.MyCalendar .ajax__calendar_other .ajax__calendar_day,
+.MyCalendar .ajax__calendar_other .ajax__calendar_year {
+    color: #646464;
+}
+
+.MyCalendar .ajax__calendar_hover .ajax__calendar_day,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_month,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_year 
+{
+	background-color:#EDF9FF;
+    color: #0066CC;
+    font-weight:bold;
+}
+
+.MyCalendar .ajax__calendar_active .ajax__calendar_day,
+.MyCalendar .ajax__calendar_active .ajax__calendar_month,
+.MyCalendar .ajax__calendar_active .ajax__calendar_year {
+    color: blue;
+    font-weight:bold;
+}

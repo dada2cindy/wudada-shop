@@ -8,65 +8,65 @@ using NHibernate.Criterion;
 
 using com.wudada.web.util.page;
 using com.wudada.console.service.system;
-using Spring.Context;
-using Spring.Context.Support;
-using Common.Logging;
 using com.wudada.console.service.auth;
 using com.wudada.console.service.auth.vo;
+using com.wudada.web.page;
+using Spring.Context;
+using Spring.Context.Support;
+using com.wudada.console.service.common.vo;
 
 
-public partial class admin_auth_UserList : System.Web.UI.Page
-{
-    ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+public partial class admin_auth_UserList : BasePage
+{    
     IAuthService authService;
    
-    string DETAIL_PATE = "UserDetail.aspx";
+    string DETAIL_URL = "UserDetail.aspx";
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        IApplicationContext ctx = ContextRegistry.GetContext();
+        base.Page_Load(sender, e);
         authService = (IAuthService)ctx.GetObject("AuthService");
-
 
         if (!Page.IsPostBack)
         {
             btnSearch_Click(null, null);
         }
     }
+
     protected void AspNetPager1_PageChanged(object sender, EventArgs e)
     {
         btnSearch_Click(null, null);
     }
+
     protected void btnSearch_Click(object sender, EventArgs e)
     {
-        //注入條件
-        DetachedCriteria detachedCriteria = GenerateRule();
+        DetachedCriteria dCriteria = DetachedCriteria.For(typeof(LoginUser));
 
-        AspNetPager1.RecordCount = authService.myService.CountDetachedCriteriaRow(detachedCriteria);
+        string search1 = txtSearch1.Text.Trim();
+        if (!string.IsNullOrEmpty(search1))
+        {
+            dCriteria.Add(Expression.Like("UserId", search1, MatchMode.Anywhere));
+        }
 
-        lblMsg.Text = " <span class='searchAlterTxt'>(共有</span> " + AspNetPager1.RecordCount + " <span class='searchAlterTxt'>筆資料)</span>";
+        dCriteria.AddOrder(Order.Asc("UserId"));
 
-        fillPagedGridView(GenerateRule());
-    }
+        AspNetPager1.RecordCount = myService.CountDetachedCriteriaRow(dCriteria);
 
-    private void fillPagedGridView(DetachedCriteria detachedCriteria)
-    {
+        lblMsg.Text = string.Format("<span class='searchAlterTxt'>(共有</span> {0} <span class='searchAlterTxt'>筆資料)</span>", AspNetPager1.RecordCount);
+
         int maxRecord = AspNetPager1.PageSize;
         int startIndex = AspNetPager1.PageSize * (AspNetPager1.CurrentPageIndex - 1);
-        fillGridView(detachedCriteria, startIndex, maxRecord);
-    }
 
-    private void fillGridView(DetachedCriteria detachedCriteria, int startIndex, int MaxRecord)
-    {
-        GridView1.DataSource = authService.myService.ExecutableDetachedCriteria<LoginUser>(detachedCriteria, startIndex, MaxRecord);
+        GridView1.DataSource = myService.ExecutableDetachedCriteria<LoginUser>(dCriteria, startIndex, maxRecord);
         GridView1.DataBind();
     }
+
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         switch (e.CommandName)
         {
             case "MyEdit":
-                Response.Redirect(DETAIL_PATE + "?id=" + e.CommandArgument.ToString());
+                Response.Redirect(DETAIL_URL + "?id=" + e.CommandArgument.ToString());
                 break;
             case "MyDel":
 
@@ -78,20 +78,22 @@ public partial class admin_auth_UserList : System.Web.UI.Page
                 }
                 else
                 {
-                    LoginUser loginUser = authService.myService.DaoGetVOById<LoginUser>(e.CommandArgument.ToString());
+                    LoginUser loginUser = authService.myService.DaoGetVOById<LoginUser>(int.Parse(e.CommandArgument.ToString()));
                     authService.myService.DaoDelete(loginUser);
-                    jsStr = JavascriptUtil.AlertJS("刪除成功");
+                    jsStr = JavascriptUtil.AlertJS(MsgVO.DELETE_OK);
                     btnSearch_Click(null, null);
                 }
 
-                ScriptManager.RegisterClientScriptBlock(lblMsg, lblMsg.GetType(), "data", jsStr, false);           
+                ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "data", jsStr, false);           
                 break;
         }
     }
+
     protected void btnAdd_Click(object sender, EventArgs e)
     {
-        Response.Redirect(DETAIL_PATE);
+        Response.Redirect(DETAIL_URL);
     }
+
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
     {     
         //if (e.Row.RowIndex != -1)
@@ -100,19 +102,5 @@ public partial class admin_auth_UserList : System.Web.UI.Page
         //    string userId = UIHelper.FindHiddenValue(ctrl, "hdnId");          
         //}
     }
-    private DetachedCriteria GenerateRule()
-    {
-        DetachedCriteria query = DetachedCriteria.For(typeof(LoginUser));
 
-        string searchClassify = txtSearchTitle.Text;
-
-        if (!String.IsNullOrEmpty(searchClassify))
-        {
-            query.Add(Expression.Like("UserId", searchClassify, MatchMode.Anywhere));
-        }
-
-        query.AddOrder(Order.Asc("UserId"));
-
-        return query;
-    }
 }
