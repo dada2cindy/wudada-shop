@@ -16,6 +16,8 @@
 </head>
 <body id="top">
     <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
     <!-- ####################################################################################################### -->
 <div class="wrapper col1">
   <div id="header" style="background-color: #000000; ">

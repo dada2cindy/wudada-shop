@@ -16,6 +16,8 @@
 </head>
 <body id="top" style="background-color: #191919; ">
     <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
     <!-- ####################################################################################################### -->
 <div class="wrapper col1">
   <div id="header" style="background-color: #000000; ">
@@ -48,9 +50,20 @@
 <!-- ####################################################################################################### -->
 <div class="wrapper col5">
   <div id="copyright">
-    <p class="fl_left">Copyright © 2010 <a href="../masterpage/index.aspx">新明眼鏡</a>. All rights reserved. </p>
-    <p class="fl_right">Site created by <a href="http://wudada.org" title="WuDADA Design">WuDADA Design</a></p>
-    <br class="clear" />
+    <%--<p class="fl_left">
+        Copyright © 2010 <a href="../masterpage/index.aspx">新明眼鏡</a>. All rights reserved.         
+    </p>
+    <p class="fl_right">Site created by <a href="http://wudada.org" title="WuDADA Design">WuDADA Design</a></p>--%>
+    <table border="0" cellpadding="0" cellspacing="0" style="border-width:0;">
+        <tr>
+            <td align="left" style="border-style:none;" width="335px" >
+                Copyright © 2010 <a href="../masterpage/index.aspx">新明眼鏡</a>. All rights reserved. <a style="float:right;" href="http://www.facebook.com/pages/xin-ming-de-yan-jing-shi-jie/190721680940970" target="_blank"><img src="../../images/fb.png" width="25"/></a>
+            </td>
+            <td align="right" style="border-style:none;">
+                Site created by <a href="http://wudada.org" title="WuDADA Design">WuDADA Design</a>
+            </td>
+        </tr>
+    </table>
   </div>
 </div>
     </form>
