@@ -11,9 +11,9 @@
             <div class="featured_box">
                 <div class="floater">
                     <h2>
-                        韓版復古風</h2>
+                        <asp:Label ID="lblName" runat="server" Text='<%#Eval("Name") %>'></asp:Label></h2>
                     <p>
-                        中性潮流超酷個性金屬卯釘排列造型方框平光眼鏡</p>
+                        <asp:Label ID="lblDetail" runat="server" Text='<%#Eval("Detail") %>'></asp:Label></p>
                 </div>
                 <p class="readmore">
                     <asp:HyperLink ID="hlinkMore" runat="server" NavigateUrl='<%#Eval("URL") %>' Target='<%#Eval("Target") %>'>更多 &raquo;</asp:HyperLink></p>
