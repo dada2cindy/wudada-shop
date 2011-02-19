@@ -12,7 +12,7 @@ input, textarea, select{font-size:12px; font-family:Georgia, "Times New Roman", 
 
 /* ----------------------------------------------Search Form-------------------------------------*/
 
-#topline input{
+#topline .inputTxt{
 	display:block;
 	float:left;
 	width:155px;
@@ -25,19 +25,20 @@ input, textarea, select{font-size:12px; font-family:Georgia, "Times New Roman", 
 	font-family:Arial, Helvetica, sans-serif;
 	}
 
-#topline input#go{
-	width:68px;
-	height:26px;
-	margin:0;
-	padding:4px 0;
-	text-transform:uppercase;
-	color:#FFFFFF;
-	background-color:#525252;
-	border:1px solid #B6B6B6;
-	cursor:pointer;
-	font-weight:bold;
-	font-family:Arial, Helvetica, sans-serif;
-	}
+#topline .searchBtn
+    {
+        width: 68px;
+        height: 26px;
+        margin: 0;
+        padding: 4px 0;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        background-color: #525252;
+        border: 1px solid #B6B6B6;
+        cursor: pointer;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+    }
 
 /* ----------------------------------------------Forms in Content Area-------------------------------------*/
 
