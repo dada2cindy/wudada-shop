@@ -1,31 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
+using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
 using com.wudada.web.page;
-using com.wudada.console.service.information;
 using com.wudada.web.sessionstate;
-using com.wudada.console.generic.util;
-using com.wudada.console.service.poss.vo;
-using com.wudada.web.util.page;
-using com.wudada.web.service.auth;
-using com.wudada.console.service.auth.vo;
+using com.wudada.console.service.system.vo;
 using com.wudada.console.service.common.vo;
-using com.wudada.console.service.poss;
+using com.wudada.web.util.page;
+using com.wudada.console.generic.util;
 
-public partial class admin_shop_ClassfyDetail : BasePage
+public partial class admin_shop_BrandClassifyDetail : BasePage
 {
-    IPossService possService;
     SessionHelper sessionHelper = new SessionHelper();
-    readonly string LIST_URL = "ClassfyList.aspx";
+    readonly string LIST_URL = "BrandClassifyList.aspx";
     string JsStr = "";
+    readonly string ITEM_PARAM_CLASSIFY = "品牌管理";
 
     protected new void Page_Load(object sender, EventArgs e)
     {
         base.Page_Load(sender, e);
-        possService = (IPossService)ctx.GetObject("PossService");
 
         if (!Page.IsPostBack)
         {
@@ -56,18 +57,21 @@ public partial class admin_shop_ClassfyDetail : BasePage
 
     private void LoadDataToUI(int id)
     {
-        ProductClassifyVO productClassifyVO = myService.DaoGetVOById<ProductClassifyVO>(id);
+        ItemParamVO itemParamVO = myService.DaoGetVOById<ItemParamVO>(id);
 
-        UIHelper.FillUI(PanelUI, productClassifyVO);
+        UIHelper.FillUI(PanelUI, itemParamVO);
+        ckbIsEnable.Checked = !itemParamVO.Deleted;
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
-        ProductClassifyVO productClassifyVO = new ProductClassifyVO();
-        UIHelper.FillVO(PanelUI, productClassifyVO);
+        ItemParamVO itemParamVO = new ItemParamVO();
+        UIHelper.FillVO(PanelUI, itemParamVO);
+        itemParamVO.Classify = ITEM_PARAM_CLASSIFY;
+        itemParamVO.Value = itemParamVO.Name;
+        itemParamVO.Deleted = !ckbIsEnable.Checked;
+        myService.DaoInsert(itemParamVO);
 
-        WuDADAAuthService.FillAuthData(productClassifyVO, FuncOprt.OprtAction.INSERT);
-        possService.Insert_ProductClassify(productClassifyVO);
 
         JsStr = JavascriptUtil.AlertJSAndRedirect(MsgVO.INSERT_OK, LIST_URL);
         ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "data", JsStr, false);
@@ -75,12 +79,11 @@ public partial class admin_shop_ClassfyDetail : BasePage
 
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
-        ProductClassifyVO productClassifyVO = myService.DaoGetVOById<ProductClassifyVO>(ConvertUtil.ToInt32(hdnId.Value));
-
-        UIHelper.FillVO(PanelUI, productClassifyVO);
-
-        WuDADAAuthService.FillAuthData(productClassifyVO, FuncOprt.OprtAction.UPDATE);
-        myService.DaoUpdate(productClassifyVO);
+        ItemParamVO itemParamVO = myService.DaoGetVOById<ItemParamVO>(ConvertUtil.ToInt32(hdnId.Value));
+        UIHelper.FillVO(PanelUI, itemParamVO);
+        itemParamVO.Value = itemParamVO.Name;
+        itemParamVO.Deleted = !ckbIsEnable.Checked;
+        myService.DaoUpdate(itemParamVO);
 
         JsStr = JavascriptUtil.AlertJSAndRedirect(MsgVO.UPDATE_OK, LIST_URL);
         ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "data", JsStr, false);

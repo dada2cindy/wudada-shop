@@ -1,20 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
+using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
 using com.wudada.web.page;
+using com.wudada.console.service.system.vo;
 using NHibernate.Criterion;
-using com.wudada.console.service.poss.vo;
-using com.wudada.web.util.page;
 using com.wudada.console.service.common.vo;
+using com.wudada.web.util.page;
 
-public partial class admin_shop_ClassfyList : BasePage
+public partial class admin_shop_BrandClassifyList : BasePage
 {
     string JsStr = "";
-    readonly string LIST_URL = "ClassfyList.aspx";
-    readonly string DETAIL_URL = "ClassfyDetail.aspx";
+    readonly string LIST_URL = "BrandClassifyList.aspx";
+    readonly string DETAIL_URL = "BrandClassifyDetail.aspx";
+    readonly string ITEM_PARAM_CLASSIFY = "品牌管理";
 
     protected new void Page_Load(object sender, EventArgs e)
     {
@@ -28,7 +35,9 @@ public partial class admin_shop_ClassfyList : BasePage
 
     protected void imgbtnSearch_Click(object sender, ImageClickEventArgs e)
     {
-        DetachedCriteria dCriteria = DetachedCriteria.For(typeof(ProductClassifyVO));
+        DetachedCriteria dCriteria = DetachedCriteria.For(typeof(ItemParamVO));
+
+        dCriteria.Add(Expression.Eq("Classify", ITEM_PARAM_CLASSIFY));
 
         string search1 = txtSearch1.Text.Trim();
         if (!string.IsNullOrEmpty(search1))
@@ -37,10 +46,10 @@ public partial class admin_shop_ClassfyList : BasePage
         }
 
         //啟用
-        string isEnable = ddlIsEnable.SelectedValue;
-        if (!string.IsNullOrEmpty(isEnable))
+        string isDeleted = ddlDeleted.SelectedValue;
+        if (!string.IsNullOrEmpty(isDeleted))
         {
-            dCriteria.Add(Expression.Eq("IsEnable", bool.Parse(isEnable)));
+            dCriteria.Add(Expression.Eq("Deleted", bool.Parse(isDeleted)));
         }
 
         dCriteria.AddOrder(Order.Asc("ListOrder"));
@@ -52,7 +61,7 @@ public partial class admin_shop_ClassfyList : BasePage
         int maxRecord = AspNetPager1.PageSize;
         int startIndex = AspNetPager1.PageSize * (AspNetPager1.CurrentPageIndex - 1);
 
-        GridView1.DataSource = myService.ExecutableDetachedCriteria<ProductClassifyVO>(dCriteria, startIndex, maxRecord);
+        GridView1.DataSource = myService.ExecutableDetachedCriteria<ItemParamVO>(dCriteria, startIndex, maxRecord);
         GridView1.DataBind();
     }
 
@@ -74,8 +83,8 @@ public partial class admin_shop_ClassfyList : BasePage
                 Response.Redirect(string.Format("{0}?id={1}", DETAIL_URL, e.CommandArgument.ToString()));
                 break;
             case "MyDel":
-                ProductClassifyVO productClassifyVO = myService.DaoGetVOById<ProductClassifyVO>(int.Parse(e.CommandArgument.ToString()));
-                myService.DaoDelete(productClassifyVO);
+                ItemParamVO itemParamVO = myService.DaoGetVOById<ItemParamVO>(int.Parse(e.CommandArgument.ToString()));
+                myService.DaoDelete(itemParamVO);
                 imgbtnSearch_Click(null, null);
                 JsStr = JavascriptUtil.AlertJS(MsgVO.DELETE_OK);
                 ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "data", JsStr, false);

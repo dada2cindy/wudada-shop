@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/masterpage/MasterPage.master" AutoEventWireup="true" CodeFile="ClassfyList.aspx.cs" Inherits="admin_shop_ClassfyList" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/admin/masterpage/MasterPage.master" AutoEventWireup="true" CodeFile="BrandClassifyList.aspx.cs" Inherits="admin_shop_BrandClassifyList" %>
 
 <%@ Register TagName="Loading" TagPrefix="ajax" Src="~/admin/common/AjaxLoading.ascx" %>
 <%@ Register TagPrefix="Webdiyer" Namespace="Wuqi.Webdiyer" Assembly="aspnetpager" %>
@@ -26,7 +26,7 @@
                             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                                 <tr>
                                     <td bgcolor="#F0F0F0">
-                                        查詢商品分類
+                                        查詢品牌分類
                                         <div class="add">
                                             <asp:ImageButton ID="imgbtnAdd" runat="server" Height="23" ImageUrl="../images/add_btn.jpg"
                                                 OnClick="imgbtnAdd_Click" Width="62" /></div>
@@ -42,10 +42,10 @@
                                 <tr>
                                     <td height="30px">
                                         啟用：
-                                        <asp:DropDownList ID="ddlIsEnable" runat="server">
+                                        <asp:DropDownList ID="ddlDeleted" runat="server">
                                             <asp:ListItem Text="全部" Value=""></asp:ListItem>
-                                            <asp:ListItem Text="是" Value="True" Selected="True"></asp:ListItem>
-                                            <asp:ListItem Text="否" Value="False"></asp:ListItem>
+                                            <asp:ListItem Text="是" Value="False" Selected="True"></asp:ListItem>
+                                            <asp:ListItem Text="否" Value="True"></asp:ListItem>
                                         </asp:DropDownList>
                                         &nbsp;&nbsp;
                                     </td>
@@ -80,7 +80,7 @@
                                 </asp:BoundField>
                                 <asp:TemplateField HeaderText="啟用">
                                     <ItemTemplate>
-                                        <asp:Label ID="lblIsEnable" runat="server" Text='<%# Eval("GetStr_IsEnable") %>'></asp:Label>
+                                        <asp:Label ID="lblDeleted" runat="server" Text='<%# Eval("GetStr_Deleted") %>'></asp:Label>
                                     </ItemTemplate>
                                     <HeaderStyle Width="50px" />
                                     <ItemStyle HorizontalAlign="Center" />
@@ -118,4 +118,3 @@
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>
-
