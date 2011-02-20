@@ -62,21 +62,6 @@ public partial class common_upload_FileModify : BasePage
                 hdnId.Value = fileVO.Id.ToString();
 
                 txtName.Text = fileName;
-                //原始的
-                //OboutPostedFile file = files[i];
-                //string whereToSave = "Uploaded/" + file.InputName + "/";
-                //string whereToSave = "Uploaded/";
-
-                //file.SaveAs(MapPath(whereToSave + Path.GetFileName(file.FileName)));
-
-                //if (uploadedFiles.Text.Length == 0)
-                //    uploadedFiles.Text += "<b>Successfully uploaded files:</b><table border=0 cellspacing=0>";
-                //uploadedFiles.Text += "<tr>";
-                //uploadedFiles.Text += "<td class='option2'>" + Path.GetFileName(file.FileName) + "</td>";
-                //uploadedFiles.Text += "<td style='font:11px Verdana;'>&nbsp;&nbsp;" + file.ContentLength.ToString() + " bytes</td>";
-                //uploadedFiles.Text += "<td class='option2'>&nbsp;&nbsp;(" + file.ContentType + ")</td>";
-                //uploadedFiles.Text += "<td style='font:11px Verdana;'>&nbsp;&nbsp;<b>to</b>: " + whereToSave + "</td>";
-                //uploadedFiles.Text += "</tr>";
             }
 
             if (uploadedFiles.Text.Length == 0 && string.IsNullOrEmpty(hdnId.Value))
@@ -105,7 +90,11 @@ public partial class common_upload_FileModify : BasePage
             else if (!string.IsNullOrEmpty(Request.QueryString["infoid"])) //眼鏡與我
             {
                 hdnTargetId.Value = Request.QueryString["infoid"];
-            }           
+            }
+            else if (!string.IsNullOrEmpty(Request.QueryString["bid"])) //品牌
+            {
+                hdnTargetId.Value = Request.QueryString["bid"];
+            } 
         }
     }
 
@@ -141,7 +130,11 @@ public partial class common_upload_FileModify : BasePage
             else if (!string.IsNullOrEmpty(Request.QueryString["infoid"])) //眼鏡與我
             {
                 informationService.SetFileToInfoVO(int.Parse(hdnId.Value), int.Parse(hdnTargetId.Value));
-            }           
+            }
+            else if (!string.IsNullOrEmpty(Request.QueryString["bid"])) //品牌
+            {
+                possService.SetFileToBandVO(int.Parse(hdnId.Value), int.Parse(hdnTargetId.Value));
+            }
 
             ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "data2", "window.close()", true);
         }

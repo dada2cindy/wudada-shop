@@ -46,7 +46,13 @@ public partial class common_upload_FileList : BasePage
             Id = Request.QueryString["infoid"];
             hdnTarget.Value += "&infoid=" + Id;
             btnAdd.Attributes.Add("onclick", string.Format("DoShowModelDialog('FileModify.aspx?infoid={0}')", Id));
-        }       
+        }
+        else if (!string.IsNullOrEmpty(Request.QueryString["bid"])) //品牌
+        {
+            Id = Request.QueryString["bid"];
+            hdnTarget.Value += "&bid=" + Id;
+            btnAdd.Attributes.Add("onclick", string.Format("DoShowModelDialog('FileModify.aspx?bid={0}')", Id));
+        } 
 
         if (!Page.IsPostBack)
         {
@@ -70,7 +76,12 @@ public partial class common_upload_FileList : BasePage
         {
             InfoVO infoVO = myService.DaoGetVOById<InfoVO>(int.Parse(id));
             rpFile.DataSource = infoVO.FileList;
-        }       
+        }
+        else if (!string.IsNullOrEmpty(Request.QueryString["bid"])) //品牌
+        {
+            BrandVO brandVO = myService.DaoGetVOById<BrandVO>(int.Parse(id));
+            rpFile.DataSource = brandVO.FileList;
+        } 
 
         rpFile.DataBind();
     }
@@ -95,7 +106,11 @@ public partial class common_upload_FileList : BasePage
                 else if (!string.IsNullOrEmpty(Request.QueryString["infoid"])) //眼鏡與我
                 {
                     informationService.DeleteFileFromInfoVO(int.Parse(e.CommandArgument.ToString()), int.Parse(hdnId.Value));
-                }               
+                }
+                else if (!string.IsNullOrEmpty(Request.QueryString["bid"])) //品牌
+                {
+                    possService.DeleteFileFromBrandVO(int.Parse(e.CommandArgument.ToString()), int.Parse(hdnId.Value));
+                }  
 
                 RP_Bind(hdnId.Value);
                 break;
