@@ -206,8 +206,11 @@ public partial class schema : BasePage
         MenuFunc menuFunc = new MenuFunc("商店管理", null);
         myService.DaoInsert(menuFunc);
 
-        MenuFunc m1 = authService.AddSubMenu(menuFunc, "分類管理", "admin/shop/ClassfyList.aspx");
-        authService.AddOtherPath(m1, "admin/shop/ClassfyDetail.aspx");
+        MenuFunc m1 = authService.AddSubMenu(menuFunc, "產品分類管理", "admin/shop/ClassifyList.aspx");
+        authService.AddOtherPath(m1, "admin/shop/ClassifyDetail.aspx");
+
+        MenuFunc m4 = authService.AddSubMenu(menuFunc, "品牌分類管理", "admin/shop/BrandClassifyList.aspx");
+        authService.AddOtherPath(m4, "admin/shop/BrandClassifyDetail.aspx");
 
         MenuFunc m2 = authService.AddSubMenu(menuFunc, "品牌管理", "admin/shop/BrandList.aspx");
         authService.AddOtherPath(m2, "admin/shop/BrandDetail.aspx");
