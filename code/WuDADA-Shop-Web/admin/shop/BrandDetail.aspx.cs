@@ -15,6 +15,7 @@ using com.wudada.web.service.auth;
 using com.wudada.console.service.auth.vo;
 using com.wudada.console.service.common.vo;
 using com.wudada.console.service.system.vo;
+using com.wudada.web.util;
 
 public partial class admin_shop_BrandDetail : BasePage
 {
@@ -22,6 +23,7 @@ public partial class admin_shop_BrandDetail : BasePage
     ISystemService systemService;
     SessionHelper sessionHelper = new SessionHelper();
     readonly string LIST_URL = "BrandList.aspx";
+    readonly string DETAIL_URL = "BrandDetail.aspx";
     string JsStr = "";
 
     protected new void Page_Load(object sender, EventArgs e)
@@ -62,6 +64,10 @@ public partial class admin_shop_BrandDetail : BasePage
     {
         btnAdd.Visible = true;
         btnUpdate.Visible = false;
+        //新增時不能設定上架，要去上傳圖片
+        ckbIsEnable.Enabled = false;
+        //新增時上傳圖片關掉
+        trFile.Visible = false;
     }
 
     private void UseUpdateMode()
@@ -79,6 +85,9 @@ public partial class admin_shop_BrandDetail : BasePage
         {
             ddl_Classify.SelectedValue = brandVO.Classify.Id.ToString();
         }
+        
+        //圖片清單
+        ltlFileIfrm.Text = string.Format("<iframe width='500' scrolling='no' frameborder='0' id='ifmFileList' src='{0}' onload='ResizeIframe(this)'></iframe>", string.Format("{0}?bid={1}&btnAddName={2}", ConfigHelper.FileList_Admin, id, "上傳圖片"));
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)
@@ -94,7 +103,7 @@ public partial class admin_shop_BrandDetail : BasePage
         WuDADAAuthService.FillAuthData(brandVO, FuncOprt.OprtAction.INSERT);
         possService.Insert_BrandVO(brandVO);
 
-        JsStr = JavascriptUtil.AlertJSAndRedirect(MsgVO.INSERT_OK, LIST_URL);
+        JsStr = JavascriptUtil.AlertJSAndRedirect(string.Format("{0}，請繼續上傳品牌圖片", MsgVO.INSERT_OK), string.Format("{0}?id={1}", DETAIL_URL, brandVO.Id));
         ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "data", JsStr, false);
     }
 

@@ -1,28 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/masterpage/MasterPage.master" AutoEventWireup="true" CodeFile="BrandDetail.aspx.cs" Inherits="admin_shop_BrandDetail" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/admin/masterpage/MasterPage.master" AutoEventWireup="true" CodeFile="BrandClassifyDetail.aspx.cs" Inherits="admin_shop_BrandClassifyDetail"  %>
 
-<%@ Register Assembly="FredCK.FCKeditorV2" Namespace="FredCK.FCKeditorV2" TagPrefix="FCKeditorV2" %>
 <%@ Register TagName="Loading" TagPrefix="ajax" Src="~/admin/common/AjaxLoading.ascx" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <!--ifrm自動調整大小-->  
-    <script type="text/javascript">
-        var myI, myW, myH
-        function ResizeIframe(i) {
-            //初始大小
-            i.height = 40;
-            i.width = 500;
-            //動態抓取大小
-            var b = i.contentWindow.document.body;
-            myI = i;
-            myW = b.scrollWidth;
-            myH = b.scrollHeight;
-            setTimeout("ResizeIframe2(myI,myW,myH)", 100);
-        }
-        function ResizeIframe2(i, w, h) {
-            i.height = h + 10;
-            i.width = w;
-        }
-    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <ajax:Loading ID="Loading" runat="server" />
@@ -41,17 +21,6 @@
                                 </tr>
                                 <tr>
                                     <td class="updateDateContent" align="right" height="30px">
-                                        <font color='#FF0000'>*</font>分類：
-                                    </td>
-                                    <td class="updateDateContent">
-                                        <asp:DropDownList ID="ddl_Classify" runat="server">    
-                                        </asp:DropDownList>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddl_Classify"
-                                            Display="None" ErrorMessage="請選擇分類" ValidationGroup="Save"></asp:RequiredFieldValidator>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="updateDateContent" align="right" height="30px">
                                         <font color='#FF0000'>*</font>名稱：
                                     </td>
                                     <td class="updateDateContent">
@@ -61,28 +30,11 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td align="right" height="30px" valign="top">
-                                        <font color="#FF0000">*</font>內容：
-                                    </td>
-                                    <td>
-                                        <FCKeditorV2:FCKeditor ID="fckContent" runat="server" Width="550px" Height="500px">
-                                        </FCKeditorV2:FCKeditor>
-                                    </td>
-                                </tr>
-                                <tr>
                                     <td class="updateDateContent" align="right" height="30px">
                                         啟用：
                                     </td>
                                     <td class="updateDateContent">
                                         <asp:CheckBox ID="ckbIsEnable" runat="server" />
-                                    </td>
-                                </tr>
-                                <tr runat="server" id="trFile" visible="true">
-                                    <td align="right" valign="top">
-                                        圖片清單：
-                                    </td>
-                                    <td>
-                                        <asp:Literal ID="ltlFileIfrm" runat="server"></asp:Literal>
                                     </td>
                                 </tr>
                                 <tr>
