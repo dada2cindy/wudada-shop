@@ -1,18 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/content/masterpage/MasterPage_White.master"
-    AutoEventWireup="true" CodeFile="product_detail.aspx.cs" Inherits="content_poss_product_detail" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/content/masterpage/MasterPage_White.master" AutoEventWireup="true" CodeFile="brand_detail.aspx.cs" Inherits="content_poss_brand_detail" %>
 
 <%@ Register Src="../userControls/Product_Brand_Classify.ascx" TagName="product_BC1"
     TagPrefix="ucProduct" %>
 <%@ Register Src="../userControls/Product_Search.ascx" TagName="product_Search" TagPrefix="ucProduct" %>
+<%@ Register TagPrefix="Webdiyer" Namespace="Wuqi.Webdiyer" Assembly="aspnetpager" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <!--cloud zoom-->
-
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-
-    <link href="../../css/cloud-zoom.css" rel="stylesheet" type="text/css" />
-
-    <script type="text/javascript" src="../../js/cloud-zoom.1.0.2.js"></script>
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <!-- ####################################################################################################### -->
@@ -48,28 +40,28 @@
                                 <td style="border-color: #FFFFFF;" width="200">
                                     <div class="zoom-small-image">
                                         <asp:Literal ID="ltlMainImg" runat="server"></asp:Literal></div>
-                                    <p style="text-align: center;">
+                                    <%--<p style="text-align: left;">
                                         <b>產品編號：<asp:Label ID="lblSN" runat="server" Text=""></asp:Label></b>
-                                    </p>
-                                    <%--<div style="text-align: left;">
-                                        中性潮流超酷個性金屬卯釘排列造型方框平光眼鏡...
-                                    </div>--%>
+                                    </p>--%>
+                                    <div style="text-align: left;">
+                                        <asp:Literal ID="ltlContent" runat="server"></asp:Literal>
+                                    </div>
                                 </td>
                                 <td style="border-color: #FFFFFF; float: left;">
-                                    <div class="zoom-desc" style="width: 400px;">
-                                        <asp:Repeater ID="Repeater1" runat="server">
+                                    <div style="width: 400px;">
+                                        <asp:Repeater ID="Repeater1" runat="server" 
+                                            onitemdatabound="Repeater1_ItemDataBound">
                                             <ItemTemplate>
                                                 <div style="float: left;">
-                                                    <a href='../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx' class='cloud-zoom-gallery'
-                                                        title='' rel="useZoom: 'zoom1', smallImage: '../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx' ">
-                                                        <img class="zoom-tiny-image" src="../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx"
-                                                            style="border-color: #FFFFFF;" width="70px" height="61"/></a></div>
+                                                    <a href='../poss/product_detail.aspx?id=<%#Eval("Id") %>' title='<%#Eval("Name") %>'>
+                                                        <asp:Image ID="imgPic" runat="server" ImageUrl="" BorderColor="#FFFFFF" width="70px" height="61px" AlternateText='<%#Eval("Name") %>'/></a></div>
                                             </ItemTemplate>
                                         </asp:Repeater>
-                                        <%--<div style="float: left;">
-                                            <a href='upload/pic/pic1_1.jpg' class='cloud-zoom-gallery' title='' rel="useZoom: 'zoom1', smallImage: 'upload/pic/pic1_2.jpg' ">
-                                                <img class="zoom-tiny-image" src="upload/pic/pic1_3.jpg" style="border-color: #FFFFFF;"
-                                                    width="70px" /></a></div>--%>
+                                    </div>
+                                    <div style="width: 400px;" align="center">
+                                        <Webdiyer:AspNetPager ID="AspNetPager1" runat="server" PageIndexOutOfRangeErrorMessage="頁索引超出範圍！"
+                                            Width="100%" OnPageChanged="AspNetPager1_PageChanged" PageSize="40" CssClass="gvPage">
+                                        </Webdiyer:AspNetPager>
                                     </div>
                                 </td>
                             </tr>
@@ -101,5 +93,7 @@
         </div>
     </div>
     <!-- ####################################################################################################### -->
-    <asp:HiddenField ID="hdnId" runat="server" />
+    <asp:HiddenField ID="hdnBId" runat="server" />
+    <asp:HiddenField ID="hdnKey" runat="server" />
 </asp:Content>
+

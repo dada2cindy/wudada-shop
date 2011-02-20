@@ -15,7 +15,7 @@ using com.wudada.web.util.page;
 using NHibernate.SqlCommand;
 using com.wudada.console.service.system.vo;
 
-public partial class content_poss_product_list : BasePage
+public partial class content_poss_brand_list : BasePage
 {
     IPossService possService;
     readonly string SHOW_PIC = ConfigHelper.PictureShow;
@@ -27,20 +27,10 @@ public partial class content_poss_product_list : BasePage
 
         if (!Page.IsPostBack)
         {
-            //分類
-            if (!string.IsNullOrEmpty(Request.QueryString["cid"]))
-            {
-                hdnCId.Value = Request.QueryString["cid"];
-            }
             //品牌類別
             if (!string.IsNullOrEmpty(Request.QueryString["bType"]))
             {
                 hdnBType.Value = Request.QueryString["bType"];
-            }
-            //品牌
-            if (!string.IsNullOrEmpty(Request.QueryString["bid"]))
-            {
-                hdnBId.Value = Request.QueryString["bid"];
             }
             //關鍵字
             if (!string.IsNullOrEmpty(Request.QueryString["key"]))
@@ -54,21 +44,11 @@ public partial class content_poss_product_list : BasePage
     private void LoadDataToUI()
     {
         //清單文字
-        string listName = "產品清單";
+        string listName = "品牌清單";
         if (!string.IsNullOrEmpty(hdnBType.Value))  //品牌類別
         {
             ItemParamVO itemParamVO = myService.DaoGetVOById<ItemParamVO>(ConvertUtil.ToInt32(hdnBType.Value));
-            listName = string.Format("產品清單 - {0}", itemParamVO.Name);
-        }
-        else if (!string.IsNullOrEmpty(hdnBId.Value))  //品牌
-        {
-            BrandVO brandVO = myService.DaoGetVOById<BrandVO>(ConvertUtil.ToInt32(hdnBId.Value));
-            listName = string.Format("產品清單 - {0} - {1}", brandVO.Classify.Name, brandVO.Name);
-        }
-        else if (!string.IsNullOrEmpty(hdnCId.Value))  //商品類別
-        {
-            ProductClassifyVO productClassifyVO = myService.DaoGetVOById<ProductClassifyVO>(ConvertUtil.ToInt32(hdnCId.Value));
-            listName = string.Format("產品清單 - 分類：{0}", productClassifyVO.Name);
+            listName = string.Format("品牌清單 - {0}", itemParamVO.Name);
         }
         lblListName.Text = listName;
 
@@ -83,26 +63,13 @@ public partial class content_poss_product_list : BasePage
 
     private void RP_Bind()
     {
-        DetachedCriteria dCriteria = DetachedCriteria.For(typeof(ProductVO));
-        DetachedCriteria dCriteria_Classify = dCriteria.CreateCriteria("ClassifyList", JoinType.LeftOuterJoin);
-        DetachedCriteria dCriteria_Brand = dCriteria.CreateCriteria("Brand", JoinType.LeftOuterJoin);
-
-        //分類
-        if (!string.IsNullOrEmpty(hdnCId.Value))
-        {
-            dCriteria_Classify.Add(Expression.Eq("Id", ConvertUtil.ToInt32(hdnCId.Value)));
-        }
-
-        //品牌
-        if (!string.IsNullOrEmpty(hdnBId.Value))
-        {
-            dCriteria_Brand.Add(Expression.Eq("Id", ConvertUtil.ToInt32(hdnBId.Value)));
-        }
+        DetachedCriteria dCriteria = DetachedCriteria.For(typeof(BrandVO));
+        DetachedCriteria dCriteria_Classify = dCriteria.CreateCriteria("Classify", JoinType.LeftOuterJoin);
 
         //品牌類別
         if (!string.IsNullOrEmpty(hdnBType.Value))
         {
-            dCriteria_Brand.CreateCriteria("Classify", JoinType.LeftOuterJoin).Add(Expression.Eq("Id", ConvertUtil.ToInt32(hdnBType.Value)));
+            dCriteria_Classify.Add(Expression.Eq("Id", ConvertUtil.ToInt32(hdnBType.Value)));
         }
 
         //關鍵字
@@ -113,6 +80,7 @@ public partial class content_poss_product_list : BasePage
 
         //啟用
         dCriteria.Add(Expression.Eq("IsEnable", true));
+        dCriteria_Classify.Add(Expression.Eq("Deleted", false));
 
         dCriteria.AddOrder(Order.Asc("Name"));
 
@@ -121,7 +89,7 @@ public partial class content_poss_product_list : BasePage
         int maxRecord = AspNetPager1.PageSize;
         int startIndex = AspNetPager1.PageSize * (AspNetPager1.CurrentPageIndex - 1);
 
-        Repeater1.DataSource = myService.ExecutableDetachedCriteria<ProductVO>(dCriteria, startIndex, maxRecord);
+        Repeater1.DataSource = myService.ExecutableDetachedCriteria<BrandVO>(dCriteria, startIndex, maxRecord);
         Repeater1.DataBind();
     }
 
@@ -130,10 +98,10 @@ public partial class content_poss_product_list : BasePage
         if (e.Item.ItemIndex != -1)
         {
             Control ctrl = e.Item;
-            ProductVO productVO = (ProductVO)e.Item.DataItem;
+            BrandVO brandVO = (BrandVO)e.Item.DataItem;
 
             //圖片
-            FileVO fileVO = possService.Get_FirstFile(productVO);
+            FileVO fileVO = possService.Get_FirstFile(brandVO);
             if (fileVO != null)
             {
                 string cssStyle = "";
@@ -141,8 +109,8 @@ public partial class content_poss_product_list : BasePage
                 {
                     cssStyle = "class='last'";
                 }
-                UIHelper.SetLiteralText(ctrl, "ltlPic", string.Format("<li {0}><a href='../poss/product_detail.aspx?id={1}&cid={2}&bid={3}&bType={4}'><img src='{5}?type=fjx&fileName={6}' alt='' width='190' height='130'/></a><p>{7}</p></li>"
-                    , cssStyle, productVO.Id, hdnCId.Value, hdnBId.Value, hdnBType.Value, SHOW_PIC, fileVO.Path, productVO.Name));
+                UIHelper.SetLiteralText(ctrl, "ltlPic", string.Format("<li {0}><a href='../poss/brand_detail.aspx?bid={1}&bType={2}'><img src='{3}?type=fjx&fileName={4}' alt='' width='190' height='130'/></a><p>{5}</p></li>"
+                    , cssStyle, brandVO.Id, hdnBType.Value, SHOW_PIC, fileVO.Path, brandVO.Name));
             }
         }
     }
