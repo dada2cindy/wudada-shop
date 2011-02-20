@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/content/masterpage/MasterPage_White.master" AutoEventWireup="true" CodeFile="product_list.aspx.cs" Inherits="content_poss_product_list" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/content/masterpage/MasterPage_White.master" AutoEventWireup="true" CodeFile="brand_list.aspx.cs" Inherits="content_poss_brand_list" %>
 
 <%@ Register TagPrefix="Webdiyer" Namespace="Wuqi.Webdiyer" Assembly="aspnetpager" %>
 <%@ Register Src="../userControls/Product_Brand_Classify.ascx" TagName="product_BC1" TagPrefix="ucProduct" %>
@@ -29,7 +29,7 @@
             <tr>
                 <td valign="middle" class="title-01" width="100%">
                     <asp:Label ID="lblKey" runat="server" Text=""></asp:Label>
-                    <asp:Label ID="lblListName" runat="server" Text="產品清單"></asp:Label>
+                    <asp:Label ID="lblListName" runat="server" Text="品牌清單"></asp:Label>
                 </td>
             </tr>
         </table>

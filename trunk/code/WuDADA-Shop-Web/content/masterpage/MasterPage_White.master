@@ -24,7 +24,7 @@
     <div id="topnav">
       <ul>
         <li class="last"><a href="../info/service_list.aspx">Service</a><span>眼鏡與我</span></li>
-        <li><a href="../poss/product_list.aspx">Products</a><span>產品櫥窗</span>
+        <li><a href="../poss/brand_list.aspx">Products</a><span>產品櫥窗</span>
           <%--<ul>
             <li><a href="../poss/brand_list.aspx">品牌</a></li>
             <li><a href="../poss/class_list.aspx">類別</a></li>

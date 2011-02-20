@@ -1,16 +1,16 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Product_Brand_Classify.ascx.cs"
     Inherits="content_userControls_Product_Brand_Classify" %>
 <ul>
-    <li><a href="#">品牌</a>
+    <li><a href="../poss/brand_list.aspx">品牌</a>
         <ul>
             <asp:Repeater ID="rptBrandType" runat="server" 
                 onitemdatabound="rptBrandType_ItemDataBound">
                 <ItemTemplate>
-                    <li><a href='../poss/product_list.aspx?bType=<%#Eval("Id") %>'><%#Eval("Name") %></a>
+                    <li><a href='../poss/brand_list.aspx?bType=<%#Eval("Id") %>'><%#Eval("Name") %></a>
                         <ul>
                             <asp:Repeater ID="rptBrand" runat="server">
                                 <ItemTemplate>
-                                    <li><a href='../poss/product_list.aspx?bid=<%#Eval("Id") %>'><%#Eval("Name")%></a></li>
+                                    <li><a href='../poss/brand_detail.aspx?bid=<%#Eval("Id") %>'><%#Eval("Name")%></a></li>
                                 </ItemTemplate>
                             </asp:Repeater>
                             <%--<li><a href="../poss/product_list.aspx?bid=1">興市</a></li>--%>
