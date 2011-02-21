@@ -38,7 +38,7 @@
                                         簡短說明：
                                     </td>
                                     <td class="updateDateContent">
-                                        <asp:TextBox ID="txtDetail" runat="server" Width="550px"></asp:TextBox>                                        
+                                        <asp:TextBox ID="txtDetail" runat="server" Width="550px" MaxLength="100"></asp:TextBox>                                        
                                     </td>
                                 </tr>
                                 <tr>
