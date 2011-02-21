@@ -27,6 +27,7 @@
                 //, onClick: function() { window.open(this.url, '_blank'); }  //連結另開視窗
                 , onClick: function() { window.open("../ad/default.aspx?id=" + this.id, '_blank'); }  //連結另開視窗
                 , reflections: true
+                , imagesHeight: 0.75
             });
 
         });
