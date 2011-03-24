@@ -36,7 +36,7 @@
                 <ul>
                     <li>
                         <div class="imgholder">
-                            <asp:Image ID="imgPath" runat="server" width="125" height="125"/></div>
+                            <asp:Image ID="imgPath" runat="server"/></div>
                         <div class="latestnews">
                             <h2>
                                 <asp:Label ID="lblTitle" runat="server" Text='<%#Eval("Title") %>'></asp:Label></h2>
