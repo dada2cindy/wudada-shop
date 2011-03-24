@@ -22,6 +22,7 @@ public partial class admin_login : BasePage
     CookieHelper cookieHelper = new CookieHelper();
 
     string HOME_INDEX = "~/admin/masterpage/index.aspx";
+    int sessionTimeout = 540;
 
     protected new void Page_Load(object sender, EventArgs e)
     {
@@ -81,6 +82,7 @@ public partial class admin_login : BasePage
                 object o = user.BelongRoles;
                 log.Debug("目前使用者權限==" + o);
                 sessionHelper.AdminUser = user;
+                Session.Timeout = sessionTimeout;
                 //記憶登入資訊
                 if (ckbSaveLogin.Checked)
                 {
