@@ -20,7 +20,7 @@ public partial class content_info_service_list : BasePage
     readonly int PARAM_ID_CLASSIFY = VarHelper.WuDADA_ITEMPARAM_ID_INFO1;
     readonly string SHOW_PIC = ConfigHelper.PictureShow;
 
-    protected void Page_Load(object sender, EventArgs e)
+    protected new void Page_Load(object sender, EventArgs e)
     {
         base.Page_Load(sender, e);
         informationService = (IInformationService)ctx.GetObject("InformationService");
@@ -78,7 +78,7 @@ public partial class content_info_service_list : BasePage
             FileVO fileVO = informationService.Get_FirstFile(infoVO);
             if (fileVO != null)
             {
-                UIHelper.ImageImgUrl(ctrl, "imgPath", string.Format("{0}?type=fjx&fileName={1}", SHOW_PIC, fileVO.Path));
+                UIHelper.ImageImgUrl(ctrl, "imgPath", string.Format("{0}?type=fjx&fileName={1}&auto=w&size=125", SHOW_PIC, fileVO.Path));
             }
         }
     }

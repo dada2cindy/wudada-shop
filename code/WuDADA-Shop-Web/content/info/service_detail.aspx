@@ -26,7 +26,7 @@
   <div class="container" style="background-color: #FFFFFF;">
     <div class="content">
       <asp:Panel ID="PanelUI" runat="server">
-      <div id="topstory">
+      <div id="topstory2">
         <table border="0" cellspacing="0" cellpadding="0" width="100%">
             <tr>
                 <td valign="middle" class="title-01" width="100%">
@@ -45,7 +45,7 @@
                     <div class="zoom-desc">   
                         <asp:Repeater ID="Repeater1" runat="server">
                             <ItemTemplate>
-                                <div style="float:left;"><a href='../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx' class='cloud-zoom-gallery' title='' rel="useZoom: 'zoom1', smallImage: '../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx' "><img class="zoom-tiny-image" src="../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx" style="border-color:#FFFFFF;" width="40px" height="30"/></a></div>                                          
+                                <div style="float:left;" id="servicedetail_small_image"><a href='../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx' class='cloud-zoom-gallery' title='' rel="useZoom: 'zoom1', smallImage: '../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx&auto&size=200' "><img class="zoom-tiny-image" src="../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx" style="border-color:#FFFFFF;" /></a></div>                                          
                             </ItemTemplate>
                         </asp:Repeater>                        
                         <%--<div style="float:left;"><a href='upload/pic/pic_service_1_1.jpg' class='cloud-zoom-gallery' title='' rel="useZoom: 'zoom1', smallImage: 'upload/pic/pic_service_1_2.jpg' "><img class="zoom-tiny-image" src="upload/pic/pic_service_1_2.jpg" style="border-color:#FFFFFF;" width="40px"/></a></div>--%>                                          

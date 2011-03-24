@@ -36,7 +36,7 @@
                 <ul>
                     <li>
                         <div class="imgholder">
-                            <img src="../../common/PictureShow.ashx?fileName=<%#Eval("ImgPath") %>&type=fjx" width="125" height="125" alt="" /></div>
+                            <img src="../../common/PictureShow.ashx?fileName=<%#Eval("ImgPath") %>&type=fjx&auto=w&size=125" alt="" /></div>
                         <div class="latestnews">
                             <h2>
                                 <asp:Label ID="lblTitle" runat="server" Text='<%#Eval("Title") %>'></asp:Label></h2>

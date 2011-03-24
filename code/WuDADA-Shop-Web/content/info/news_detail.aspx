@@ -33,8 +33,8 @@
                 </table>
                 <ul>
                     <li>
-                        <div class="imgholder">
-                            <asp:Image ID="imgImgPath" runat="server" Width="125" Height="125" /></div>
+                        <div class="imgholder2">
+                            <asp:Image ID="imgImgPath" runat="server" /></div>
                         <div class="latestnews">
                             <asp:Literal ID="ltlContent" runat="server"></asp:Literal>
                             <p class="readmore">

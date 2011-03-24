@@ -19,7 +19,7 @@ public partial class content_info_news_detail : BasePage
     readonly string SHOW_PIC = ConfigHelper.PictureShow;
     readonly string PIC_DIR = ConfigHelper.FjxFileURL;
 
-    protected void Page_Load(object sender, EventArgs e)
+    protected new void Page_Load(object sender, EventArgs e)
     {
         base.Page_Load(sender, e);
         informationService = (IInformationService)ctx.GetObject("InformationService");
@@ -44,7 +44,7 @@ public partial class content_info_news_detail : BasePage
         //圖片
         if (!string.IsNullOrEmpty(newsVO.ImgPath))
         {
-            imgImgPath.ImageUrl = string.Format("{0}?type=fjx&fileName={1}", SHOW_PIC, newsVO.ImgPath);
+            imgImgPath.ImageUrl = string.Format("{0}?type=fjx&fileName={1}&auto=w&size=125", SHOW_PIC, newsVO.ImgPath);
         }
 
         //廣告

@@ -19,7 +19,7 @@ public partial class content_info_news_list : BasePage
     readonly int PARAM_ID_CLASSIFY = VarHelper.WuDADA_ITEMPARAM_ID_NEWS1;
     readonly string PIC_DIR = ConfigHelper.AdPicURL;
 
-    protected void Page_Load(object sender, EventArgs e)
+    protected new void Page_Load(object sender, EventArgs e)
     {
         base.Page_Load(sender, e);
         informationService = (IInformationService)ctx.GetObject("InformationService");
