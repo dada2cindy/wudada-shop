@@ -11,6 +11,18 @@
     <script type="text/javascript" src="../../js/jquery.slidepanel.setup.js"></script>
     <script type="text/javascript" src="../../js/jquery.cycle.min.js"></script>
     <script type="text/javascript" src="../../js/jquery.cycle.setup.js"></script>
+    <!--Google 網站分析 -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-22163275-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -36,8 +48,9 @@
       </ul>
     </div>
     <div id="logo">
-      <h1><a href="../masterpage/index.aspx"><strong>新明</strong>眼鏡</a></h1>
-      <p>為 您 打 造 值 得 信 賴 與 依 靠 的 伴 侶．．．．</p>
+        <a href="../masterpage/index.aspx"><img src="../../images/logo.png" width="250px"/></a>
+      <%--<h1><a href="../masterpage/index.aspx"><strong>新明</strong>眼鏡</a></h1>
+      <p>為 您 打 造 值 得 信 賴 與 依 靠 的 伴 侶．．．．</p>--%>
     </div>
     <br class="clear" />
   </div>
