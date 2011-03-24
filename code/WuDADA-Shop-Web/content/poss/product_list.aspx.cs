@@ -20,7 +20,7 @@ public partial class content_poss_product_list : BasePage
     IPossService possService;
     readonly string SHOW_PIC = ConfigHelper.PictureShow;
 
-    protected void Page_Load(object sender, EventArgs e)
+    protected new void Page_Load(object sender, EventArgs e)
     {
         base.Page_Load(sender, e);
         possService = (IPossService)ctx.GetObject("PossService");
@@ -141,7 +141,7 @@ public partial class content_poss_product_list : BasePage
                 {
                     cssStyle = "class='last'";
                 }
-                UIHelper.SetLiteralText(ctrl, "ltlPic", string.Format("<li {0}><a href='../poss/product_detail.aspx?id={1}&cid={2}&bid={3}&bType={4}'><img src='{5}?type=fjx&fileName={6}' alt='' width='190' height='130'/></a><p>{7}</p></li>"
+                UIHelper.SetLiteralText(ctrl, "ltlPic", string.Format("<li {0}><table style='border-width: 0px'><tr><td width='100%' align='left' style='border-width: 0px'><p>{7}</p><a href='../poss/product_detail.aspx?id={1}&cid={2}&bid={3}&bType={4}'><img src='{5}?type=fjx&fileName={6}&auto=h&size=120' alt=''/></a></td></tr></table></li>"
                     , cssStyle, productVO.Id, hdnCId.Value, hdnBId.Value, hdnBType.Value, SHOW_PIC, fileVO.Path, productVO.Name));
             }
         }

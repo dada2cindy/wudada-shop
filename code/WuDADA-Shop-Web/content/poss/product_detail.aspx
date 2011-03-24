@@ -6,13 +6,9 @@
 <%@ Register Src="../userControls/Product_Search.ascx" TagName="product_Search" TagPrefix="ucProduct" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <!--cloud zoom-->
-
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-
     <link href="../../css/cloud-zoom.css" rel="stylesheet" type="text/css" />
-
     <script type="text/javascript" src="../../js/cloud-zoom.1.0.2.js"></script>
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <!-- ####################################################################################################### -->
@@ -34,7 +30,7 @@
         <div class="container" style="background-color: #FFFFFF;">
             <div class="content">
             <asp:Panel ID="PanelUI" runat="server">
-                <div id="topstory">
+                <div id="topstory2">
                     <table border="0" cellspacing="0" cellpadding="0" width="100%">
                         <tr>
                             <td valign="middle" class="title-01" width="100%">
@@ -59,11 +55,11 @@
                                     <div class="zoom-desc" style="width: 400px;">
                                         <asp:Repeater ID="Repeater1" runat="server">
                                             <ItemTemplate>
-                                                <div style="float: left;">
+                                                <div style="float: left;" id="productdetail_small_image">
                                                     <a href='../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx' class='cloud-zoom-gallery'
-                                                        title='' rel="useZoom: 'zoom1', smallImage: '../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx' ">
+                                                        title='' rel="useZoom: 'zoom1', smallImage: '../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx&auto&size=200' ">
                                                         <img class="zoom-tiny-image" src="../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx"
-                                                            style="border-color: #FFFFFF;" width="70px" height="61"/></a></div>
+                                                            style="border-color: #FFFFFF;" /></a></div>
                                             </ItemTemplate>
                                         </asp:Repeater>
                                         <%--<div style="float: left;">

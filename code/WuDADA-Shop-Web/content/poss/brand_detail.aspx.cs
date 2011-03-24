@@ -21,7 +21,7 @@ public partial class content_poss_brand_detail : BasePage
     readonly string SHOW_PIC = ConfigHelper.PictureShow;
     readonly string PIC_DIR = ConfigHelper.FjxFileURL;
 
-    protected void Page_Load(object sender, EventArgs e)
+    protected new void Page_Load(object sender, EventArgs e)
     {
         base.Page_Load(sender, e);
         possService = (IPossService)ctx.GetObject("PossService");
@@ -52,7 +52,7 @@ public partial class content_poss_brand_detail : BasePage
         FileVO fileVO = possService.Get_FirstFile(brandVO);
         if (fileVO != null)
         {
-            ltlMainImg.Text = string.Format("<img src='{0}?fileName={1}&type=fjx' alt='' width='200px'/>", SHOW_PIC, fileVO.Path);
+            ltlMainImg.Text = string.Format("<img src='{0}?fileName={1}&type=fjx&auto=w&size=200' alt=''/>", SHOW_PIC, fileVO.Path);
         }
 
         //品牌下的所有產品
@@ -101,7 +101,7 @@ public partial class content_poss_brand_detail : BasePage
             FileVO fileVO = possService.Get_FirstFile(productVO);
             if (fileVO != null)
             {
-                UIHelper.ImageImgUrl(ctrl, "imgPic", string.Format("{0}?type=fjx&fileName={1}", SHOW_PIC, fileVO.Path));
+                UIHelper.ImageImgUrl(ctrl, "imgPic", string.Format("{0}?type=fjx&fileName={1}&auto=w&size=70", SHOW_PIC, fileVO.Path));
             }
         }
     }

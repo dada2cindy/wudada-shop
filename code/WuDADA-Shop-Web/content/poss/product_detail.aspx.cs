@@ -19,7 +19,7 @@ public partial class content_poss_product_detail : BasePage
     readonly string SHOW_PIC = ConfigHelper.PictureShow;
     readonly string PIC_DIR = ConfigHelper.FjxFileURL;
 
-    protected void Page_Load(object sender, EventArgs e)
+    protected new void Page_Load(object sender, EventArgs e)
     {
         base.Page_Load(sender, e);
         possService = (IPossService)ctx.GetObject("PossService");
@@ -45,7 +45,7 @@ public partial class content_poss_product_detail : BasePage
         if (fileVO != null)
         {
             //主圖(第一章圖)
-            ltlMainImg.Text = string.Format("<a href='{0}?fileName={1}&type=fjx' class = 'cloud-zoom' id='zoom1' rel=\"adjustX: 10,zoomWidth:390, adjustY:-4\"><img src='{0}?fileName={1}&type=fjx' alt='' width='200px'/></a>", SHOW_PIC, fileVO.Path);
+            ltlMainImg.Text = string.Format("<a href='{0}?fileName={1}&type=fjx' class = 'cloud-zoom' id='zoom1' rel=\"adjustX: 10,zoomWidth:'auto', adjustY:-4\"><img src='{0}?fileName={1}&type=fjx&auto=w&size=200' alt=''/></a>", SHOW_PIC, fileVO.Path);
 
             //全部圖
             Repeater1.DataSource = productVO.FileList;
