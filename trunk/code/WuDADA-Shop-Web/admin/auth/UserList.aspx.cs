@@ -22,7 +22,7 @@ public partial class admin_auth_UserList : BasePage
    
     string DETAIL_URL = "UserDetail.aspx";
 
-    protected void Page_Load(object sender, EventArgs e)
+    protected new void Page_Load(object sender, EventArgs e)
     {
         base.Page_Load(sender, e);
         authService = (IAuthService)ctx.GetObject("AuthService");
