@@ -9,9 +9,9 @@ using com.wudada.console.service.poss;
 using com.wudada.console.service.poss.vo;
 using com.wudada.console.generic.util;
 using com.wudada.console.service.common.vo;
-using com.wudada.web.util;
 using com.wudada.console.service.information.vo;
 using com.wudada.console.service.information;
+using com.wudada.web.util;
 
 public partial class common_upload_FileList : BasePage
 {
@@ -20,7 +20,7 @@ public partial class common_upload_FileList : BasePage
 
     public string hdnTargetClientId = "";
     public String Id;
-    protected void Page_Load(object sender, EventArgs e)
+    protected new void Page_Load(object sender, EventArgs e)
     {
         base.Page_Load(sender, e);
         possService = (IPossService)ctx.GetObject("PossService");
@@ -123,7 +123,7 @@ public partial class common_upload_FileList : BasePage
             Control ctrl = e.Item;
 
             FileVO fileVO = (FileVO)e.Item.DataItem;
-            if (ImageHelper.IsImage(fileVO.Path))
+            if (ImageUtil.IsImage(fileVO.Path))
             {
                 Image imgFile = (Image)ctrl.FindControl("imgFile");
                 imgFile.ImageUrl = string.Format("{0}?fileName={1}&type=fjx", ConfigHelper.PictureShow, fileVO.Path);

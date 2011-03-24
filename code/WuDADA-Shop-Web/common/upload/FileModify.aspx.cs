@@ -19,7 +19,7 @@ public partial class common_upload_FileModify : BasePage
     IInformationService informationService;
     public string btnSureClientId = "";
 
-    protected void Page_Load(object sender, EventArgs e)
+    protected new void Page_Load(object sender, EventArgs e)
     {
         base.Page_Load(sender, e);
         possService = (IPossService)ctx.GetObject("PossService");
