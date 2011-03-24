@@ -24,9 +24,9 @@
      </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <%--<ajax:Loading ID="Loading" runat="server" />
+    <ajax:Loading ID="Loading" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>--%>
+        <ContentTemplate>
             <asp:Panel ID="PanelUI" runat="server">
                 <br />
                 <table border="0" cellpadding="0" cellspacing="0" width="96%">
@@ -118,7 +118,7 @@
                 </table>
             </asp:Panel>
             <asp:HiddenField ID="hdnId" runat="server" />
-        <%--</ContentTemplate>
-    </asp:UpdatePanel>--%>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>
 
