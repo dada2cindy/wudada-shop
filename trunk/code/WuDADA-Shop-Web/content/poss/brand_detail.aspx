@@ -26,7 +26,7 @@
         <div class="container" style="background-color: #FFFFFF;">
             <div class="content">
             <asp:Panel ID="PanelUI" runat="server">
-                <div id="topstory">
+                <div id="topstory2">
                     <table border="0" cellspacing="0" cellpadding="0" width="100%">
                         <tr>
                             <td valign="middle" class="title-01" width="100%">

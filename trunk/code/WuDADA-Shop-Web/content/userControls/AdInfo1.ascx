@@ -12,7 +12,7 @@
         <ItemTemplate>
             <div class="b_250">
                 <asp:HyperLink ID="hlinkMore" runat="server" NavigateUrl='<%#Eval("URL") %>' Target='<%#Eval("Target") %>'>                
-                    <img src="../../common/PictureShow.ashx?fileName=<%#Eval("ImgPath") %>&type=adpic" alt='<%#Eval("Name") %>' width="250" height="250"/></asp:HyperLink></div>
+                    <img src="../../common/PictureShow.ashx?fileName=<%#Eval("ImgPath") %>&type=adpic&auto=w&size=250" alt='<%#Eval("Name") %>'/></asp:HyperLink></div>
         </ItemTemplate>        
       </asp:Repeater>
     </div>
