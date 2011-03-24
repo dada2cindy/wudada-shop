@@ -13,7 +13,7 @@ public partial class content_masterpage_about : BasePage
     readonly int PARAM_ID_COM_INFO1 = VarHelper.WuDADA_ITEMPARAM_ID_COM_INFO1;
     readonly int PARAM_IDID_COM_INFO2 = VarHelper.WuDADA_ITEMPARAM_ID_COM_INFO2;
 
-    protected void Page_Load(object sender, EventArgs e)
+    protected new void Page_Load(object sender, EventArgs e)
     {
         base.Page_Load(sender, e);
 

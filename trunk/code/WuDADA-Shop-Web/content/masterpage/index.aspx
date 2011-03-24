@@ -17,7 +17,7 @@
                 </div>
                 <p class="readmore">
                     <asp:HyperLink ID="hlinkMore" runat="server" NavigateUrl='<%#Eval("URL") %>' Target='<%#Eval("Target") %>'>更多 &raquo;</asp:HyperLink></p>
-                <img src="../../common/PictureShow.ashx?fileName=<%#Eval("ImgPath") %>&type=adpic" alt="" /></div>
+                <img src="../../common/PictureShow.ashx?fileName=<%#Eval("ImgPath") %>&type=adpic&auto=w&size=930" alt="" /></div>
         </ItemTemplate>        
       </asp:Repeater>
   </div>
