@@ -126,11 +126,11 @@ public partial class common_upload_FileList : BasePage
             if (ImageUtil.IsImage(fileVO.Path))
             {
                 Image imgFile = (Image)ctrl.FindControl("imgFile");
-                imgFile.ImageUrl = string.Format("{0}?fileName={1}&type=fjx", ConfigHelper.PictureShow, fileVO.Path);
+                imgFile.ImageUrl = string.Format("{0}?fileName={1}&type=fjx&auto=w&size=80", ConfigHelper.PictureShow, fileVO.Path);
                 imgFile.Visible = true;
 
                 HyperLink hlinkImage = (HyperLink)ctrl.FindControl("hlinkImage");
-                hlinkImage.NavigateUrl = string.Format("{0}?fileName={1}&type=fjx", ConfigHelper.PictureShow, fileVO.Path);
+                hlinkImage.NavigateUrl = string.Format("{0}?fileName={1}&type=fjx&auto=w&size=800", ConfigHelper.PictureShow_NewWin, fileVO.Path);
                 hlinkImage.Visible = true;
             }
             else

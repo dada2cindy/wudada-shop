@@ -6,12 +6,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using com.wudada.web.page;
 using com.wudada.console.service.poss;
-using OboutInc.FileUpload;
 using System.IO;
 using com.wudada.console.service.common.vo;
 using com.wudada.console.generic.util;
 using com.wudada.web.util.page;
 using com.wudada.console.service.information;
+using com.wudada.web.util;
 
 public partial class common_upload_FileModify : BasePage
 {
@@ -25,60 +25,15 @@ public partial class common_upload_FileModify : BasePage
         possService = (IPossService)ctx.GetObject("PossService");
         informationService = (IInformationService)ctx.GetObject("InformationService");
         btnSureClientId = btnSure.ClientID;
+        Page.Response.Expires = -1;
 
-        if (Page.IsPostBack)
-        {
-            OboutFileCollection files = uploadProgress.Files;
-
-            uploadedFiles.Text = "";
-            log.Error("files.Count = " + files.Count);
-            for (int i = 0; i < files.Count; i++)
-            {
-                OboutPostedFile file = files[i];
-
-                string path = this.Server.MapPath(@"../../fileUpload/fjx/");
-                string fileName = Path.GetFileName(file.FileName);                
-
-                //寫入/更新 檔案
-                string newFileName = ConvertUtil.Get_NewFileName(fileName);
-                file.SaveAs(path + newFileName);
-
-                FileVO fileVO = new FileVO();
-                if (!string.IsNullOrEmpty(hdnId.Value))
-                {
-                    fileVO = myService.Dao.DaoGetVOById<FileVO>(int.Parse(hdnId.Value));
-                }
-                fileVO.Name = fileName;
-                fileVO.Path = newFileName;
-                fileVO.OriginalName = fileName;
-                if (!string.IsNullOrEmpty(hdnId.Value))
-                {
-                    myService.DaoUpdate(fileVO);
-                }
-                else
-                {
-                    myService.DaoInsert(fileVO);
-                }
-                hdnId.Value = fileVO.Id.ToString();
-
-                txtName.Text = fileName;
-            }
-
-            if (uploadedFiles.Text.Length == 0 && string.IsNullOrEmpty(hdnId.Value))
-            {
-                string js = JavascriptUtil.AlertJS("請選擇檔案");
-                ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "data", js, false);
-            }
-            //uploadedFiles.Text = "請選擇檔案";
-            //else
-            //    uploadedFiles.Text += "</table>";
-        }
-        else
+        if (!Page.IsPostBack)
         {
             //檔案Id
             if (!string.IsNullOrEmpty(Request.QueryString["fid"]))
             {
                 hdnId.Value = Request.QueryString["fid"];
+                btnSure.Enabled = true;
                 LoadDataToUI(hdnId.Value);
             }
 
@@ -94,7 +49,7 @@ public partial class common_upload_FileModify : BasePage
             else if (!string.IsNullOrEmpty(Request.QueryString["bid"])) //品牌
             {
                 hdnTargetId.Value = Request.QueryString["bid"];
-            } 
+            }
         }
     }
 
@@ -104,8 +59,6 @@ public partial class common_upload_FileModify : BasePage
         FileVO fileVO = myService.Dao.DaoGetVOById<FileVO>(int.Parse(id));
 
         UIHelper.FillUI(PanelUI, fileVO);
-
-        //btnUpload.Enabled = false;
     }
 
     protected void btnSure_Click(object sender, EventArgs e)
@@ -137,6 +90,43 @@ public partial class common_upload_FileModify : BasePage
             }
 
             ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "data2", "window.close()", true);
+        }
+    }
+    protected void btnUpload_Click(object sender, EventArgs e)
+    {
+        if (FileUpload1.HasFile)
+        {
+            string path = this.Server.MapPath(ConfigHelper.FjxFileURL);
+            string fileName = Path.GetFileName(FileUpload1.FileName);
+
+            //寫入/更新 檔案
+            string newFileName = ConvertUtil.Get_NewFileName(fileName);
+            FileUpload1.SaveAs(path + newFileName);
+
+            FileVO fileVO = new FileVO();
+            if (!string.IsNullOrEmpty(hdnId.Value))
+            {
+                fileVO = myService.Dao.DaoGetVOById<FileVO>(int.Parse(hdnId.Value));
+            }
+            fileVO.Name = fileName;
+            fileVO.Path = newFileName;
+            fileVO.OriginalName = fileName;
+            if (!string.IsNullOrEmpty(hdnId.Value))
+            {
+                myService.DaoUpdate(fileVO);
+            }
+            else
+            {
+                myService.DaoInsert(fileVO);
+            }
+            hdnId.Value = fileVO.Id.ToString();
+            txtName.Text = fileName;
+            btnSure.Enabled = true;
+        }
+        else
+        {
+            string js = JavascriptUtil.AlertJS("請選擇檔案");
+            ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "data", js, false);
         }
     }
 }
