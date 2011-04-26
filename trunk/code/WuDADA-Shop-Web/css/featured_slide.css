@@ -11,7 +11,7 @@ Licence: <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commo
 	margin:0 auto 0;
 	display:block;
 	width:960px;
-	height:390px;
+	height:550px;
 	overflow:hidden;
 	font-size:13px;
 	font-family:Verdana, Arial, Helvetica, sans-serif;
@@ -51,12 +51,12 @@ Licence: <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commo
 
 .featured_box img{
 	width:930px;
-	height:375px;
+	height:558px;
 	}
 
 .featured_box .floater{
 	position:absolute;
-	bottom:30px;
+	bottom:-80px;
 	width:590px;
 	height:60px;
 	margin:0 0 0 30px;
@@ -67,7 +67,7 @@ Licence: <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commo
 
 #featured_slide p.readmore{
 	position:absolute;
-	bottom:30px;
+	bottom:-80px;
 	right:30px;
 	margin:0 0 25px 0;
 	}
