@@ -4,7 +4,7 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WuDADA-Shop-Web", "H:\DADA版本控制程式\web\WuDADA-Shop\code\WuDADA-Shop-Web\", "{2DF13B71-178B-4BF0-82D4-5B620E506478}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "3.5"
-		ProjectReferences = "{A8B6B4B2-3D9F-4F1F-902A-3C664B1C63C7}|WuDADA-Console.dll;{81989B0F-DE98-4DBD-A6BD-1F957389DE5E}|WuDADA-Console.Auth.dll;{D5DFA02B-1316-4C49-9EE5-75FB8F38B1C9}|WuDADA-Web.dll;{0AA2ECFC-4C23-463E-86F8-4EAC760B0294}|WuDADA-Console.Member.dll;{E262EE39-BAB2-4C83-AD6B-934215620044}|WuDADA-Console.Poss.dll;{82C6FFFB-EC49-498E-BBA5-0FA8DD0B001E}|WuDADA-Console.Shop.dll;{97F7F2CC-DF13-4409-8F9C-F90EDD091B79}|WuDADA-Console.Information.dll;{8B7189B4-5893-472A-A823-6A7D65A0A21D}|WuDADA-Console.Advertisement.dll;"
+		ProjectReferences = "{A8B6B4B2-3D9F-4F1F-902A-3C664B1C63C7}|WuDADA-Console.dll;{8B7189B4-5893-472A-A823-6A7D65A0A21D}|WuDADA-Console.Advertisement.dll;{81989B0F-DE98-4DBD-A6BD-1F957389DE5E}|WuDADA-Console.Auth.dll;{D5DFA02B-1316-4C49-9EE5-75FB8F38B1C9}|WuDADA-Web.dll;{0AA2ECFC-4C23-463E-86F8-4EAC760B0294}|WuDADA-Console.Member.dll;{97F7F2CC-DF13-4409-8F9C-F90EDD091B79}|WuDADA-Console.Information.dll;{E262EE39-BAB2-4C83-AD6B-934215620044}|WuDADA-Console.Poss.dll;{82C6FFFB-EC49-498E-BBA5-0FA8DD0B001E}|WuDADA-Console.Shop.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/WuDADA-Shop-Web"
 		Debug.AspNetCompiler.PhysicalPath = "WuDADA-Shop-Web\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WuDADA-Shop-Web\"
