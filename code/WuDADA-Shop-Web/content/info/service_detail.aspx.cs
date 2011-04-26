@@ -47,7 +47,7 @@ public partial class content_info_service_detail : BasePage
         if (fileVO != null)
         {
             //主圖(第一章圖)
-            ltlMainImg.Text = string.Format("<a href='{0}?fileName={1}&type=fjx' class = 'cloud-zoom' id='zoom1' rel=\"adjustX: 10,zoomWidth:'auto', adjustY:-4\"><img src='{0}?fileName={1}&type=fjx&auto&size=200' alt='' /></a>", SHOW_PIC, fileVO.Path);
+            ltlMainImg.Text = string.Format("<img src='{0}?fileName={1}&type=fjx&auto=w&size=200' alt='' />", SHOW_PIC, fileVO.Path);
 
             //全部圖
             Repeater1.DataSource = infoVO.FileList;
