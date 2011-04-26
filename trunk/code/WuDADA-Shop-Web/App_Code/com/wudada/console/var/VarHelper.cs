@@ -33,9 +33,14 @@ namespace com.wudada.console.var
         public static readonly int WuDADA_ITEMPARAM_ID_COM_INFO1 = 1;
 
         /// <summary>
-        /// 公司簡介-聯絡資訊
+        /// 公司簡介-聯絡資訊-中華店
         /// </summary>
         public static readonly int WuDADA_ITEMPARAM_ID_COM_INFO2 = 2;
+
+        /// <summary>
+        /// 公司簡介-聯絡資訊-敦北店
+        /// </summary>
+        public static readonly int WuDADA_ITEMPARAM_ID_COM_INFO3 = 12;
 
         /// <summary>
         /// 資訊管理-最新消息

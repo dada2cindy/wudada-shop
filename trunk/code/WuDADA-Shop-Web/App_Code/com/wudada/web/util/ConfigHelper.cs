@@ -58,6 +58,11 @@ namespace com.wudada.web.util
         public static readonly string PictureShow = System.Configuration.ConfigurationManager.AppSettings["PictureShow"].ToString();
 
         /// <summary>
+        /// PictureShow 秀圖程式_開新視窗
+        /// </summary>
+        public static readonly string PictureShow_NewWin = System.Configuration.ConfigurationManager.AppSettings["PictureShow_NewWin"].ToString();
+
+        /// <summary>
         /// FileList_Admin 檔案清單_後台
         /// </summary>
         public static readonly string FileList_Admin = System.Configuration.ConfigurationManager.AppSettings["FileList_Admin"].ToString();
