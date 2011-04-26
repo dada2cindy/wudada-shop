@@ -29,7 +29,8 @@ img{display:block; margin:0; padding:0; border:none;}
 .clear{clear: both;}
 br.clear{clear:both; margin-top:-15px;}
 
-a{outline:none; text-decoration:none; color:#660000; background-color:#FFFFFF;}
+/*a{outline:none; text-decoration:none; color:#660000; background-color:#FFFFFF;}*/
+a{outline:none; text-decoration:none; color:#660000; }
 
 .fl_left{float:left;}
 .fl_right{float:right;}
@@ -122,9 +123,9 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 }
 
 /* ----------------------------------------------Header-------------------------------------*/
-
+/*
 #header{
-	padding:10px 0 20px;
+	/*padding:10px 0 20px;*/
 	z-index:1000;
 	}
 
@@ -138,7 +139,8 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 #header #logo{
 	display:block;
 	float:left;
-	margin-top:7px;
+	/*margin-top:7px;*/
+	height:86px;
 	overflow:hidden;
 	}
 
@@ -156,11 +158,11 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 
 #header #logo p{
 	text-align:right;
-	margin-top:5px;
+	/*margin-top:5px;*/
 	font-family:Arial, Helvetica, sans-serif;
 	text-transform:lowercase;
 	}
-
+*/
 /* ----------------------------------------------BreadCrumb-------------------------------------*/
 
 #breadcrumb ul{
@@ -354,7 +356,7 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 	padding:4px;
 	border:0px solid #C7C5C8;
 	max-width: 200px;
-    width: expression(this.width > 200 ? "2000px" : this.width);                   
+    width: expression(this.width > 200 ? "200px" : this.width);                   
     overflow: hidden; 
 	}
 
@@ -478,8 +480,21 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 	width:400px;
 	line-height:1.6em;
 	}
+	
+#footer .box2{
+	display:block;
+	float:left;
+	width:960px;
+	line-height:1.6em;
+	}
+	
+#footer .contact_info{
+	display:block;
+	float:left;
+	width:450px;
+	}
 
-#footer .box1 .imgl{border:1px solid #CCCCCC; padding:5px; color:#FFFFFF; background-color:#000000;}
+#footer .box1 .box2 .imgl{border:1px solid #CCCCCC; padding:5px; color:#FFFFFF; background-color:#000000;}
 
 #footer .contactdetails li{
 	margin:0 0 8px 0;
@@ -510,3 +525,8 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
         
         font-weight: bold;               
     }
+    
+.txt-normal
+{
+	font-family: Arial, Helvetica, sans-serif;
+}
