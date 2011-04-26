@@ -100,9 +100,7 @@ public class PictureShow : IHttpHandler
                     //縮圖不成功 就不縮了
                     try
                     {
-                        log.Debug("1");
                         ImageUtil.ToSmallPicInWidthAndHeight(imgPath, showPath, size, size2, ImageUtil.GetImageType(imgPath));
-                        log.Debug("2");
                     }
                     catch (Exception e)
                     {
@@ -114,9 +112,19 @@ public class PictureShow : IHttpHandler
                     //縮圖不成功 就不縮了
                     try
                     {
-                        log.Debug("11");
                         ImageUtil.ToSmallPicInHeightAndWidth(imgPath, showPath, size, size2, ImageUtil.GetImageType(imgPath));
-                        log.Debug("22");
+                    }
+                    catch (Exception e)
+                    {
+                        showPath = imgPath;
+                        log.Error(e);
+                    }
+                    break;
+                case "same":
+                    //縮圖不成功 就不縮了
+                    try
+                    {
+                        ImageUtil.ToSmallPic(imgPath, showPath, size, size, ImageUtil.GetImageType(imgPath));
                     }
                     catch (Exception e)
                     {

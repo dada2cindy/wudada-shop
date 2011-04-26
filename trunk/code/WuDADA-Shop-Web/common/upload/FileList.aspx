@@ -13,14 +13,11 @@
     <script language="javascript" type="text/javascript">
 
         function DoShowModelDialog(path) {
-            //window.open('FileModify_Fake.aspx', 'newwindow', 'height=100, width=100');
             var strTitle = window.showModalDialog(path, "MyDialog2", "dialogWidth=500px;dialogHeight=300px;dialogTop=100px");
 
             document.location.href = "FileList.aspx?" + document.getElementById("<%=hdnTargetClientId %>").value;
         }
     </script>
-    <%--<script src="../../js/tbEvent.js" type="text/javascript"></script>--%>
-    <%--<script type="text/javascript" src="../../js/jquery-1.4.1.min.js"></script>--%>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -51,7 +48,7 @@
                         <td align="left" class="td-wide" runat="server" id="td_Pic" >
                             <span class="t09white">
                                 <asp:HyperLink ID="hlinkImage" runat="server" Visible="false" Target="_blank">
-                                    <asp:Image ID="imgFile" runat="server" Width="70px" Height="70px" visible="false"/></asp:HyperLink>
+                                    <asp:Image ID="imgFile" runat="server" visible="false" /></asp:HyperLink>
                                 <asp:HyperLink ID="hlinkFile" runat="server" Text='<%#Eval("Name") %>' NavigateUrl='<%#String.Format("../../common/download.ashx?mode=fjx&id={0}", DataBinder.Eval(Container,"DataItem.Id"))%>' visible="false"></asp:HyperLink>
                             </span>
                         </td>
