@@ -28,9 +28,5 @@ public partial class content_masterpage_about : BasePage
         //關於新明
         ItemParamVO itemParam_Com1 = myService.DaoGetVOById<ItemParamVO>(PARAM_ID_COM_INFO1);
         ltlComInfo1.Text = itemParam_Com1.Value;
-
-        //聯絡資訊
-        ItemParamVO itemParam_Com2 = myService.DaoGetVOById<ItemParamVO>(PARAM_IDID_COM_INFO2);
-        ltlComInfo2.Text = itemParam_Com2.Value;
     }
 }
