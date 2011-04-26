@@ -5,10 +5,11 @@
     TagPrefix="ucProduct" %>
 <%@ Register Src="../userControls/Product_Search.ascx" TagName="product_Search" TagPrefix="ucProduct" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <!--cloud zoom-->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-    <link href="../../css/cloud-zoom.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="../../js/cloud-zoom.1.0.2.js"></script>
+    <!--lightbox-->
+    <link rel="stylesheet" href="../../css/lightbox.css" type="text/css" media="screen" />
+    <script src="../../js/prototype.js" type="text/javascript"></script>
+    <script src="../../js/scriptaculous.js?load=effects,builder" type="text/javascript"></script>
+    <script src="../../js/lightbox.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <!-- ####################################################################################################### -->
@@ -38,34 +39,26 @@
                             </td>
                         </tr>
                     </table>
-                    <div class="zoom-section">
+                    <div>
                         <table border="0" cellpadding="0" cellspacing="0" style="border-color: #FFFFFF;">
                             <tr style="border-color: #FFFFFF;">
                                 <td style="border-color: #FFFFFF;" width="200">
-                                    <div class="zoom-small-image">
+                                    <div>
                                         <asp:Literal ID="ltlMainImg" runat="server"></asp:Literal></div>
                                     <p style="text-align: center;">
-                                        <b>產品編號：<asp:Label ID="lblSN" runat="server" Text=""></asp:Label></b>
+                                        <b>產品編號：</b><asp:Label ID="lblSN" runat="server" Text=" CssClass="txt-normal"></asp:Label>
                                     </p>
                                     <%--<div style="text-align: left;">
                                         中性潮流超酷個性金屬卯釘排列造型方框平光眼鏡...
                                     </div>--%>
                                 </td>
                                 <td style="border-color: #FFFFFF; float: left;">
-                                    <div class="zoom-desc" style="width: 400px;">
+                                    <div style="width: 400px;">
                                         <asp:Repeater ID="Repeater1" runat="server">
                                             <ItemTemplate>
-                                                <div style="float: left;" id="productdetail_small_image">
-                                                    <a href='../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx' class='cloud-zoom-gallery'
-                                                        title='' rel="useZoom: 'zoom1', smallImage: '../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx&auto&size=200' ">
-                                                        <img class="zoom-tiny-image" src="../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx"
-                                                            style="border-color: #FFFFFF;" /></a></div>
+                                                <div style="float:left;"><a href='../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx&auto=w&size=800' rel="lightbox[roadtrip]" title='<%#Eval("Note") %>'><img src='../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx&auto=w&size=70' style="border-color:#FFFFFF;" width="70px"/></a></div>
                                             </ItemTemplate>
                                         </asp:Repeater>
-                                        <%--<div style="float: left;">
-                                            <a href='upload/pic/pic1_1.jpg' class='cloud-zoom-gallery' title='' rel="useZoom: 'zoom1', smallImage: 'upload/pic/pic1_2.jpg' ">
-                                                <img class="zoom-tiny-image" src="upload/pic/pic1_3.jpg" style="border-color: #FFFFFF;"
-                                                    width="70px" /></a></div>--%>
                                     </div>
                                 </td>
                             </tr>

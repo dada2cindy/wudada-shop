@@ -34,16 +34,13 @@
                             </td>
                         </tr>
                     </table>
-                    <div class="zoom-section">
+                    <div>
                         <table border="0" cellpadding="0" cellspacing="0" style="border-color: #FFFFFF;">
                             <tr style="border-color: #FFFFFF;">
                                 <td style="border-color: #FFFFFF;" width="200">
-                                    <div class="zoom-small-image">
+                                    <div>
                                         <asp:Literal ID="ltlMainImg" runat="server"></asp:Literal></div>
-                                    <%--<p style="text-align: left;">
-                                        <b>產品編號：<asp:Label ID="lblSN" runat="server" Text=""></asp:Label></b>
-                                    </p>--%>
-                                    <div style="text-align: left;">
+                                    <div style="text-align: left;" class="txt-normal">
                                         <asp:Literal ID="ltlContent" runat="server"></asp:Literal>
                                     </div>
                                 </td>
@@ -54,7 +51,7 @@
                                             <ItemTemplate>
                                                 <div style="float: left;">
                                                     <a href='../poss/product_detail.aspx?id=<%#Eval("Id") %>' title='<%#Eval("Name") %>'>
-                                                        <asp:Image ID="imgPic" runat="server" ImageUrl="" BorderColor="#FFFFFF" width="70px" height="61px" AlternateText='<%#Eval("Name") %>'/></a></div>
+                                                        <asp:Image ID="imgPic" runat="server" ImageUrl="" BorderColor="#FFFFFF" width="70px" AlternateText='<%#Eval("Name") %>'/></a></div>
                                             </ItemTemplate>
                                         </asp:Repeater>
                                     </div>
