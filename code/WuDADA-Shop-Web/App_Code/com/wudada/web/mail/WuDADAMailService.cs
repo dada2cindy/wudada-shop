@@ -57,7 +57,7 @@ namespace com.wudada.web.mail
         /// <returns></returns>
         private static string GenMailTo(string mailTo)
         {
-            string result = "";
+            string result = mailTo;
 
             if ("Y".Equals(ConfigHelper.OnTest.ToUpper()) && !string.IsNullOrEmpty(ConfigHelper.TestRecMail))
             {
@@ -84,7 +84,6 @@ namespace com.wudada.web.mail
                 string title = "WuDADA管理後台，密碼變更通知";
                 string body = GetMailBodyStr_LoginUser_ResetPass(loginUser);
                 mailService.SendMail(mailfrom, mailto, title, body);
-                log.Debug("Send LoginUser Pass To " + mailto);
             }
             catch (Exception ex)
             {
