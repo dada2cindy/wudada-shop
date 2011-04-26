@@ -7,10 +7,6 @@
     <meta name="keywords" content="新明眼鏡、眼鏡、隱形眼鏡、太陽鏡、名牌眼鏡" />
     <meta name="description" content="新明眼鏡、眼鏡、隱形眼鏡、太陽鏡、名牌眼鏡" />
     <link href="../../css/layout.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="../../js/jquery-1.4.1.min.js"></script>
-    <script type="text/javascript" src="../../js/jquery.slidepanel.setup.js"></script>
-    <script type="text/javascript" src="../../js/jquery.cycle.min.js"></script>
-    <script type="text/javascript" src="../../js/jquery.cycle.setup.js"></script>
     <!--Google 網站分析 -->
     <script type="text/javascript">
         var _gaq = _gaq || [];
@@ -44,6 +40,7 @@
         </li>
         <li><a href="../poss/new_product.aspx">New Arrival</a><span>時尚新品</span></li>
         <li><a href="../info/news_list.aspx">News</a><span>最新消息</span></li>
+        <li><a href="../masterpage/shop_info.aspx">Shop Info</a><span>服務據點</span></li>
         <li><a href="../masterpage/about.aspx">About</a><span>關於新明</span></li>        
       </ul>
     </div>

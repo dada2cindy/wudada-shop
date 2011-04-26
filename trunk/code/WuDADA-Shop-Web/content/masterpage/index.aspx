@@ -1,6 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/content/masterpage/MasterPage.master" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="content_masterpage_index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <script type="text/javascript" src="../../js/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery.slidepanel.setup.js"></script>
+    <script type="text/javascript" src="../../js/jquery.cycle.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery.cycle.setup.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <!-- ####################################################################################################### -->
