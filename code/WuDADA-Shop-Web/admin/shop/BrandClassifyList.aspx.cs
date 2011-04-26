@@ -84,9 +84,17 @@ public partial class admin_shop_BrandClassifyList : BasePage
                 break;
             case "MyDel":
                 ItemParamVO itemParamVO = myService.DaoGetVOById<ItemParamVO>(int.Parse(e.CommandArgument.ToString()));
-                myService.DaoDelete(itemParamVO);
-                imgbtnSearch_Click(null, null);
-                JsStr = JavascriptUtil.AlertJS(MsgVO.DELETE_OK);
+                try
+                {
+                    myService.DaoDelete(itemParamVO);
+                    imgbtnSearch_Click(null, null);
+                    JsStr = JavascriptUtil.AlertJS(MsgVO.DELETE_OK);
+                }
+                catch (Exception ex)
+                {
+                    log.Error(ex);
+                    JsStr = JavascriptUtil.AlertJS("無法刪除，此品牌分類底下已有品牌，請將底下品牌的分類修改後才可刪除");
+                }
                 ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "data", JsStr, false);
                 break;
         }

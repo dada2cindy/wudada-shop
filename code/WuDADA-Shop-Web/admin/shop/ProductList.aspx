@@ -26,7 +26,7 @@
                             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                                 <tr>
                                     <td bgcolor="#F0F0F0">
-                                        查詢商品品牌
+                                        查詢商品
                                         <div class="add">
                                             <asp:ImageButton ID="imgbtnAdd" runat="server" Height="23" ImageUrl="../images/add_btn.jpg"
                                                 OnClick="imgbtnAdd_Click" Width="62" /></div>

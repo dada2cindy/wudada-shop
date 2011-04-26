@@ -55,9 +55,9 @@
                                     </td>
                                     <td class="updateDateContent">
                                         <asp:FileUpload ID="FileUpload1" runat="server" Width="400px" />
-                                        <asp:Label ID="Label11" runat="server" CssClass="labelAlert" Text="最佳大小105x113"></asp:Label>
+                                        <asp:Label ID="Label11" runat="server" CssClass="labelAlert" Text="最佳大小(寬：125)"></asp:Label>
                                         <asp:Panel ID="pnlFile" runat="server" Visible="false">
-                                            <asp:Image ID="imgFile" runat="server" Width="105px" Height="113px" AlternateText="無圖片或圖片失效"/>
+                                            <asp:Image ID="imgFile" runat="server" AlternateText="無圖片或圖片失效"/>
                                             <asp:Button ID="btnFileDel" runat="server" Text="刪除" OnClick="btnFileDel_Click" />
                                         </asp:Panel>
                                     </td>

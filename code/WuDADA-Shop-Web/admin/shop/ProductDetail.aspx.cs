@@ -61,6 +61,7 @@ public partial class admin_shop_ProductDetail : BasePage
         ddl_Brand.Items.Clear();
         ddl_Brand.Items.Add(new ListItem("請選擇", ""));
         IList<BrandVO> brandList = possService.GetAllBrandVO(true);
+        log.Debug("brandList count = " + brandList.Count);
         if (!CollectionUtil.IsNullOrEmpty(brandList))
         {
             UIHelper.AddDropDowListItem(ddl_Brand, brandList.GetEnumerator(), "Name", "Id");
