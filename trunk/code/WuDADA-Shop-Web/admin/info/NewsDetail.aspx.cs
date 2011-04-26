@@ -69,7 +69,7 @@ public partial class admin_info_NewsDetail : BasePage
         if (!string.IsNullOrEmpty(newsVO.ImgPath))
         {
             pnlFile.Visible = true;
-            imgFile.ImageUrl = string.Format("{0}?type=fjx&fileName={1}", SHOW_PIC, newsVO.ImgPath);
+            imgFile.ImageUrl = string.Format("{0}?type=fjx&fileName={1}&auto=w&size=105", SHOW_PIC, newsVO.ImgPath);
         }
     }
 

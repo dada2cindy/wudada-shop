@@ -38,14 +38,6 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td align="right" height="30px" valign="top">
-                                        最後更新：
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="lblUpdateTime" runat="server" Text=""></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
                                     <td class="updateDateBtnTR" align="center" colspan="2" height="50px">
                                         <asp:Button ID="btnAdd" runat="server" Text="新增" OnClick="btnAdd_Click" ValidationGroup="Save"
                                             CssClass="btn" />

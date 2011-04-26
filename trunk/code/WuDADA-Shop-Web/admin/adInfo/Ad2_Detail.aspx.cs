@@ -72,7 +72,7 @@ public partial class admin_adInfo_Ad2_Detail : BasePage
         if (!string.IsNullOrEmpty(adInfoVO.ImgPath))
         {
             pnlFile.Visible = true;
-            imgFile.ImageUrl = string.Format("{0}?type=adpic&fileName={1}", SHOW_PIC, adInfoVO.ImgPath);
+            imgFile.ImageUrl = string.Format("{0}?type=adpic&fileName={1}&auto=w&size=105", SHOW_PIC, adInfoVO.ImgPath);
         }
     }
 

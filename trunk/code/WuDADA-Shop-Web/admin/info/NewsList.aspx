@@ -67,7 +67,7 @@
                                 <asp:BoundField DataField="Title" HeaderText="標題">
                                     <ItemStyle HorizontalAlign="Left" />
                                 </asp:BoundField>
-                                <asp:TemplateField HeaderText="更新日期">
+                                <asp:TemplateField HeaderText="發布日期">
                                     <ItemTemplate>
                                         <asp:Label ID="lblPublicDate" runat="server" Text='<%#Eval("PublicDate","{0:yyyy/MM/dd}") %>'></asp:Label>
                                     </ItemTemplate>
