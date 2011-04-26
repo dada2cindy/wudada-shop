@@ -2,10 +2,11 @@
 
 <%@ Register Src="../userControls/AdInfo1.ascx" TagName="adInfo1" TagPrefix="ucAd" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <!--cloud zoom-->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-    <link href="../../css/cloud-zoom.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="../../js/cloud-zoom.1.0.2.js"></script>
+    <!--lightbox-->
+    <link rel="stylesheet" href="../../css/lightbox.css" type="text/css" media="screen" />
+    <script src="../../js/prototype.js" type="text/javascript"></script>
+    <script src="../../js/scriptaculous.js?load=effects,builder" type="text/javascript"></script>
+    <script src="../../js/lightbox.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <!-- ####################################################################################################### -->
@@ -34,21 +35,20 @@
                 </td>
             </tr>
         </table>
-        <div class="zoom-section">    	  
+        <div>    	  
         <table border="0" cellpadding="0" cellspacing="0" style="border-color:#FFFFFF;">
             <tr style="border-color:#FFFFFF;">
                 <td style="border-color:#FFFFFF; float:left;" width="200">
-                    <div class="zoom-small-image">
-                        <asp:Literal ID="ltlMainImg" runat="server"></asp:Literal>
-                        <%--<a href='upload/pic/pic_service_1_1.jpg' class = 'cloud-zoom' id='zoom1' rel="adjustX: 10,zoomWidth:390, adjustY:-4"><img src="upload/pic/pic_service_1_2.jpg" alt='' width="200px"/></a>--%>
+                    <div>
+                        <asp:Literal ID="ltlMainImg" runat="server"></asp:Literal>                        
                     </div>
-                    <div class="zoom-desc">   
+                    <div>   
                         <asp:Repeater ID="Repeater1" runat="server">
                             <ItemTemplate>
-                                <div style="float:left;" id="servicedetail_small_image"><a href='../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx' class='cloud-zoom-gallery' title='' rel="useZoom: 'zoom1', smallImage: '../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx&auto&size=200' "><img class="zoom-tiny-image" src="../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx" style="border-color:#FFFFFF;" /></a></div>                                          
+                                <%--<div style="float:left;"><a href='../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx' rel="lightbox[roadtrip]" title='<%#Eval("Note") %>'><img src='../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx' style="border-color:#FFFFFF;" width="70px"/></a></div>--%>
+                                <div style="float:left;"><a href='../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx&auto=w&size=800' rel="lightbox[roadtrip]" title='<%#Eval("Note") %>'><img src="../../common/PictureShow.ashx?fileName=<%#Eval("Path") %>&type=fjx&auto=w&size=40" style="border-color:#FFFFFF;" height="30"/></a></div>                                          
                             </ItemTemplate>
-                        </asp:Repeater>                        
-                        <%--<div style="float:left;"><a href='upload/pic/pic_service_1_1.jpg' class='cloud-zoom-gallery' title='' rel="useZoom: 'zoom1', smallImage: 'upload/pic/pic_service_1_2.jpg' "><img class="zoom-tiny-image" src="upload/pic/pic_service_1_2.jpg" style="border-color:#FFFFFF;" width="40px"/></a></div>--%>                                          
+                        </asp:Repeater>                                                
                     </div>
                 </td>
                 <td style="border-color:#FFFFFF;" width="100%">
