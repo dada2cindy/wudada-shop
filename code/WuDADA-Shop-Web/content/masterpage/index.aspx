@@ -10,7 +10,8 @@
 <!-- ####################################################################################################### -->
 <div class="wrapper col2">
   <div id="featured_slide">
-      <asp:Repeater ID="Repeater1" runat="server">
+      <asp:Repeater ID="Repeater1" runat="server" 
+          onitemdatabound="Repeater1_ItemDataBound">
         <ItemTemplate>
             <div class="featured_box">
                 <div class="floater">
@@ -21,7 +22,7 @@
                 </div>
                 <p class="readmore">
                     <asp:HyperLink ID="hlinkMore" runat="server" NavigateUrl='<%#Eval("URL") %>' Target='<%#Eval("Target") %>'>更多 &raquo;</asp:HyperLink></p>
-                <img src="../../common/PictureShow.ashx?fileName=<%#Eval("ImgPath") %>&type=adpic&auto=w&size=930" alt="" /></div>
+                <asp:Image ID="imgPic" runat="server" /></div>
         </ItemTemplate>        
       </asp:Repeater>
   </div>
