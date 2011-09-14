@@ -71,5 +71,20 @@ namespace com.wudada.web.util
         /// 上傳元件檔案目錄
         /// </summary>
         public static readonly string FjxFileURL = System.Configuration.ConfigurationManager.AppSettings["FjxFileURL"].ToString();
+
+        /// <summary>
+        /// 時間差
+        /// </summary>
+        public static readonly int TimeAdj = int.Parse(System.Configuration.ConfigurationManager.AppSettings["TimeAdj"].ToString());
+
+        /// <summary>
+        /// GoogleAccount
+        /// </summary>
+        public static readonly string GoogleAccount = System.Configuration.ConfigurationManager.AppSettings["GoogleAccount"].ToString();
+
+        /// <summary>
+        /// GooglePass
+        /// </summary>
+        public static readonly string GooglePass = System.Configuration.ConfigurationManager.AppSettings["GooglePass"].ToString();
     }
 }
