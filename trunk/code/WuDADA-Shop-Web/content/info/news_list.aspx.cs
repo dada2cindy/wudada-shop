@@ -47,11 +47,11 @@ public partial class content_info_news_list : BasePage
         //啟用
         dCriteria.Add(Expression.Eq("IsEnable", true));
         //日期
-        dCriteria.Add(Expression.Le("PublicDate", ConvertUtil.ToDateTimeMax(DateTime.Today)));
+        dCriteria.Add(Expression.Le("PublicDate", ConvertUtil.ToDateTimeMax(DateTime.Now.AddHours(ConfigHelper.TimeAdj))));
 
         dCriteria.AddOrder(Order.Desc("PublicDate"));
 
-        AspNetPager1.RecordCount = myService.CountDetachedCriteriaRow(dCriteria);        
+        AspNetPager1.RecordCount = myService.CountDetachedCriteriaRow(dCriteria);
 
         int maxRecord = AspNetPager1.PageSize;
         int startIndex = AspNetPager1.PageSize * (AspNetPager1.CurrentPageIndex - 1);

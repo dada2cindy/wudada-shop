@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FileModify.aspx.cs" Inherits="common_upload_FileModify" %>
 
+<%@ Register TagName="Loading" TagPrefix="ajax" Src="~/admin/common/AjaxLoading.ascx" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
@@ -11,8 +12,9 @@
     <link rel="stylesheet" href="css/upload.css" type="text/css" />
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="formUpload" runat="server">
     <asp:ScriptManager ID="scriptManager" runat="server" EnablePageMethods="true" />
+    <ajax:Loading ID="Loading1" runat="server" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <Triggers>
             <asp:PostBackTrigger ControlID="btnUpload"/>

@@ -48,7 +48,7 @@ public partial class content_info_service_list : BasePage
         //啟用
         dCriteria.Add(Expression.Eq("IsEnable", true));
         //日期
-        dCriteria.Add(Expression.Le("CreateTime", ConvertUtil.ToDateTimeMax(DateTime.Today)));
+        dCriteria.Add(Expression.Le("CreateTime", ConvertUtil.ToDateTimeMax(DateTime.Now.AddHours(ConfigHelper.TimeAdj))));
 
         dCriteria.AddOrder(Order.Desc("CreateTime"));
 

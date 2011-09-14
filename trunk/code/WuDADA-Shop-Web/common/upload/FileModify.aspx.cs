@@ -121,7 +121,9 @@ public partial class common_upload_FileModify : BasePage
             }
             hdnId.Value = fileVO.Id.ToString();
             txtName.Text = fileName;
-            btnSure.Enabled = true;
+            //btnSure.Enabled = true;
+
+            btnSure_Click(null, null);
         }
         else
         {
