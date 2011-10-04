@@ -65,7 +65,11 @@
                 OnClick="btnInitData_Click" style="height: 21px" />
             &nbsp;<span lang="zh-tw">　　</span><br />
             
+            <asp:Button ID="Button1" runat="server" Text="加入分店資訊" onclick="Button1_Click" />
+            
             <br />
+            <asp:GridView ID="GridView1" runat="server">
+            </asp:GridView>
             <br />
         </asp:Panel>
     </div>

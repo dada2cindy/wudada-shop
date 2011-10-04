@@ -58,6 +58,10 @@ public partial class admin_shop_BrandDetail : BasePage
         {
             UIHelper.AddDropDowListItem(ddl_Classify, classifyList.GetEnumerator(), "Name", "Id");
         }
+
+        //分店
+        ckbShops.DataSource = systemService.GetAllItemParamVOByNoDel("分店資訊");
+        ckbShops.DataBind();
     }
 
     private void UseAddMode()
@@ -85,6 +89,17 @@ public partial class admin_shop_BrandDetail : BasePage
         {
             ddl_Classify.SelectedValue = brandVO.Classify.Id.ToString();
         }
+        //分店
+        if (!CollectionUtil.IsNullOrEmpty(brandVO.Shops))
+        {
+            foreach (ListItem li in ckbShops.Items)
+            {
+                if (CollectionUtil.ContainValue(brandVO.Shops,"Id",li.Value))
+                {
+                    li.Selected = true;
+                }
+            }
+        }
         
         //圖片清單
         ltlFileIfrm.Text = string.Format("<iframe width='500' scrolling='no' frameborder='0' id='ifmFileList' src='{0}' onload='ResizeIframe(this)'></iframe>", string.Format("{0}?bid={1}&btnAddName={2}", ConfigHelper.FileList_Admin, id, "上傳圖片"));
@@ -98,6 +113,15 @@ public partial class admin_shop_BrandDetail : BasePage
         if (!string.IsNullOrEmpty(ddl_Classify.SelectedValue))
         {
             brandVO.Classify = myService.DaoGetVOById<ItemParamVO>(ConvertUtil.ToInt32(ddl_Classify.SelectedValue));
+        }
+        //分店
+        brandVO.Shops = new List<ItemParamVO>();
+        foreach (ListItem li in ckbShops.Items)
+        {
+            if (li.Selected)
+            {
+                brandVO.Shops.Add(myService.DaoGetVOById<ItemParamVO>(int.Parse(li.Value)));
+            }
         }
 
         WuDADAAuthService.FillAuthData(brandVO, FuncOprt.OprtAction.INSERT);
@@ -115,6 +139,15 @@ public partial class admin_shop_BrandDetail : BasePage
         if (!string.IsNullOrEmpty(ddl_Classify.SelectedValue))
         {
             brandVO.Classify = myService.DaoGetVOById<ItemParamVO>(ConvertUtil.ToInt32(ddl_Classify.SelectedValue));
+        }
+        //分店
+        brandVO.Shops = new List<ItemParamVO>();
+        foreach (ListItem li in ckbShops.Items)
+        {
+            if (li.Selected)
+            {
+                brandVO.Shops.Add(myService.DaoGetVOById<ItemParamVO>(int.Parse(li.Value)));
+            }
         }
 
         WuDADAAuthService.FillAuthData(brandVO, FuncOprt.OprtAction.UPDATE);

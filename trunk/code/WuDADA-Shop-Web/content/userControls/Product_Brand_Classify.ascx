@@ -1,7 +1,13 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Product_Brand_Classify.ascx.cs"
     Inherits="content_userControls_Product_Brand_Classify" %>
 <ul>
-    <li><a href="../poss/brand_list.aspx">品牌</a>
+    <li>
+        <div style="float:right;">
+            <asp:DropDownList ID="ddlShops" runat="server" DataTextField="Name" DataValueField="Id"
+                AutoPostBack="true" OnSelectedIndexChanged="ddlShops_SelectedIndexChanged">
+            </asp:DropDownList>
+        </div>
+        <a href="../poss/brand_list.aspx">品牌</a>        
         <ul>
             <asp:Repeater ID="rptBrandType" runat="server" 
                 onitemdatabound="rptBrandType_ItemDataBound">

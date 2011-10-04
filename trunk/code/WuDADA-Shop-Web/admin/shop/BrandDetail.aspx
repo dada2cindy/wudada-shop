@@ -47,7 +47,17 @@
                                         <asp:DropDownList ID="ddl_Classify" runat="server">    
                                         </asp:DropDownList>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddl_Classify"
-                                            Display="None" ErrorMessage="請選擇分類" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                                            Display="None" ErrorMessage="請選擇分類" ValidationGroup="Save"></asp:RequiredFieldValidator>                                      
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="updateDateContent" align="right" height="30px">
+                                        分店：
+                                    </td>
+                                    <td class="updateDateContent">
+                                        <asp:CheckBoxList ID="ckbShops" runat="server" DataTextField="Value" DataValueField="Id"
+                                            RepeatDirection="Horizontal" Width="200px">
+                                        </asp:CheckBoxList>                                       
                                     </td>
                                 </tr>
                                 <tr>
