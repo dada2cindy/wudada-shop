@@ -14,11 +14,13 @@ using com.wudada.console.service.common.vo;
 using com.wudada.web.util.page;
 using NHibernate.SqlCommand;
 using com.wudada.console.service.system.vo;
+using com.wudada.web.sessionstate;
 
 public partial class content_poss_brand_list : BasePage
 {
     IPossService possService;
     readonly string SHOW_PIC = ConfigHelper.PictureShow;
+    SessionHelper sessionHelper = new SessionHelper();
 
     protected new void Page_Load(object sender, EventArgs e)
     {
@@ -37,6 +39,7 @@ public partial class content_poss_brand_list : BasePage
             {
                 hdnKey.Value = Request.QueryString["key"];
             }
+            
             LoadDataToUI();
         }
     }
@@ -76,6 +79,17 @@ public partial class content_poss_brand_list : BasePage
         if (!string.IsNullOrEmpty(hdnKey.Value))
         {
             dCriteria.Add(Expression.Like("Name", hdnKey.Value, MatchMode.Anywhere));
+        }
+
+        //分店        
+        if (string.IsNullOrEmpty(sessionHelper.SelectShop))
+        {
+            sessionHelper.SelectShop = "18";
+        }
+        log.Error("sessionHelper.SelectShop = " + sessionHelper.SelectShop);
+        if (!string.IsNullOrEmpty(sessionHelper.SelectShop))
+        {
+            dCriteria.CreateCriteria("Shops").Add(Expression.Eq("Id", int.Parse(sessionHelper.SelectShop)));
         }
 
         //啟用

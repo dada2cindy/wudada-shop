@@ -44,6 +44,9 @@ public partial class schema : BasePage
             {
                 hdnIsOK.Value = "Y";
             }
+
+            GridView1.DataSource = myService.DaoGetAllVO<ItemParamVO>();
+            GridView1.DataBind();
         }
 
         setInitPanel();
@@ -426,5 +429,12 @@ public partial class schema : BasePage
         m1.FuncionPaths.Add(path);
 
         myService.DaoUpdate(m1);
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        myService.DaoInsert(new ItemParamVO("分店資訊", "中華店", "中華店"));
+        myService.DaoInsert(new ItemParamVO("分店資訊", "敦北店", "敦北店"));
+
+        lblStatus.Text = "加入分店資訊成功!!";
     }
 }
